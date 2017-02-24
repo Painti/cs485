@@ -1,3 +1,5 @@
+var qs = require('querystring');
+
 module.exports = {
   getPage: (req, res) => {
     var body = '';
@@ -6,7 +8,8 @@ module.exports = {
     });
 
     req.on('end', function() {
-      res.end(body);
+      var post = qs.parse(body);
+      res.end(post.name2);
     });
   }
 };
