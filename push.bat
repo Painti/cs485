@@ -2,3 +2,4 @@
 git add *.*
 git commit -m "Zako changes"
 git push
+pause
