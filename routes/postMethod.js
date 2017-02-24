@@ -1,3 +1,7 @@
+/*
+  module ในการเก็บ route ใน เมธอด POST
+*/
+
 var postRoutes = {};
 
 postRoutes['/createPlayer'] = require('./post/create_player.js').getPage;
