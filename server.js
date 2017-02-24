@@ -5,47 +5,49 @@ var http = require('http');
 var fs = require('fs');
 var url = require('url');
 
-function MathBattle() {
+function MathBattle() { // สร้าง Object ชื่อ MathBattle
 
+  // บอกเวลาปัจจุบัน
   var timenow = () => {
     var date = new Date();
+    var sec = date.getSeconds();
+    if(sec < 10){
+      sec = '0' + sec;
+    }
     return date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' +
-      date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+      date.getHours() + ':' + date.getMinutes() + ':' + sec;
   };
 
+  // สร้างฟังก์ชันที่ให้ค่าเริ่มต้นกับแอพ
   this.init = () => {
-    this.getRoutes = getRoutes.routes;
-    this.postRoutes = postRoutes.routes;
+    this.getRoutes = getRoutes.routes; // สร้างตัวแปรที่เก็บ route ของเมธอด GET
+    this.postRoutes = postRoutes.routes; // สร้างตัวแปรที่เก็บ route ของเมธอด POST
   };
 
+  // สร้างฟังก์ชันที่ให้แอพเริ่มทำงาน
   this.start = () => {
-    http.createServer((req, res) => {
-      this.url = url.parse(req.url, true);
+    http.createServer((req, res) => { // สร้างเซิร์ฟเวอร์
+      this.url = url.parse(req.url, true); // เปลี่ยน url string เป็น URL Objects
 
-      if (req.method == 'GET') {
-        this.page = 'Error 404';
-        for (var route in this.getRoutes) {
-          if (this.url.pathname == route) {
-            this.page = route;
+      // สร้างฟังก์ชันที่ใช้หา route และใช้งานฟังก์ชันของ route นั้นๆ
+      var findRoute = (req, res, routes) => {
+        var route = 'Error 404';
+        for (var route in routes) {
+          if (this.url.pathname == route) { // เช็คว่า url ร้องขอมา มีอยู่ใน route หรือไม่
+            route = route;
             break;
           } else {
-            this.page = 'Error 404';
+            route = 'Error 404'; // ถ้าไม่เจอ route ให้ไป route ของ ERROR 404
           }
         }
         console.log(timenow() + ' : ' + req.method + ' ' + this.url.pathname);
-        this.getRoutes[this.page](req, res);
-      } else if (req.method == 'POST') {
-        this.page = 'Error 404';
-        for (var route in this.postRoutes) {
-          if (this.url.pathname == route) {
-            this.page = route;
-            break;
-          } else {
-            this.page = 'Error 404';
-          }
-        }
-        console.log(timenow() + ' : ' + req.method + ' ' + this.url.pathname);
-        this.postRoutes[this.page](req, res);
+        routes[route](req, res); // เรียกใช้งานฟังก์ชันของ route ที่่ได้
+      };
+
+      if (req.method == 'GET') { // เช็คว่า เมธอดที่รับมาเป็น GET
+        findRoute(req, res, this.getRoutes);
+      } else if (req.method == 'POST') { // เช็คว่า เมธอดที่รับมาเป็น POST
+        findRoute(req, res, this.postRoutes);
       } else {
         var data = '<h1>Error 405 : Method Not Allowed!!</h1>';
         res.writeHead(405, {
@@ -60,6 +62,6 @@ function MathBattle() {
   };
 };
 
-var app = new MathBattle();   // New application
-app.init();                   // initialize
-app.start();                  // เริ่ม
+var app = new MathBattle(); // สร้างแอพ
+app.init(); // ให้ค่าเริ่มต้นกับแอพ
+app.start(); // เริ่มแอพ
