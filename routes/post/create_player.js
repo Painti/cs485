@@ -9,7 +9,7 @@ module.exports = {
 
     req.on('end', function() {
       var post = qs.parse(body);
-      res.setHeader('Set-Cookie', 'name='+btoa(post.name));
+      res.setHeader('Set-Cookie', 'name='+post.name);
       res.end(post.name);
     });
   }
