@@ -9,7 +9,7 @@ module.exports = {
 
     req.on('end', function() {
       var post = qs.parse(body);
-      res.setHeader('Set-Cookie', 'level=' + post.level);
+      res.setHeader('Set-Cookie', 'level=' + encodeURI(post.level));
       res.writeHead(302, {
         'Location': '/play'
       });
