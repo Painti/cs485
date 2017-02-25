@@ -1,26 +1,40 @@
 .bar {
   border-spacing: 0px;
   width: 100%;
+  padding: 0.5rem;
 }
 
 .bar tr td {
-  background-color: #FFFFFF;
   width: 50%;
+  padding-top: 0.5rem;
 }
 
 .right {
   float: right;
 }
 
+.name {
+  width: 2rem;
+}
+
 .header {
   margin: 0px;
   padding: 0.75rem;
+  padding-bottom: 0.25rem;
   font-size: 1.5rem;
 }
 
+.hp-bar {
+  background-color: rgba(0, 0, 0, 0);
+  width: 90%;
+  height: 1.5rem;
+  display: block;
+  border: 1px solid #7e7e7e;
+}
+
 body {
-  background-color: #201020;
-  color: #ff0000;
+  background-color: #130a13;
+  color: #DDD;
   margin: 0px;
   height: 100vh;
 }
