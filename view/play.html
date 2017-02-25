@@ -49,8 +49,7 @@
     <div class="question">
       <span id="q">1+1</span>
     </div>
-    <label>Answer : </label>
-    <input type="text" id="ans">
+    <label class="answer">Answer : <input type="number" id="ans"></label>
     <input type="button" id="submit" value="Submit">
   </center>
 
@@ -61,6 +60,18 @@
     $('#submit').click(function() {
       $('#ans').val('').focus();
     });
+
+    /****************************************
+     *    โค้ดส่วนนี้ นำมาจาก
+     *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
+     */
+    $('#ans').keypress(function(e) {
+      if (e.which == 13) {
+        $('#submit').click();
+      }
+    });
+    /***************************************/
+
   </script>
 </body>
 
