@@ -26,23 +26,30 @@
   <table class="bar">
     <tr>
       <td>
-        <div class="hp-bar"></div>
+        <div class="hp-bar">
+          <div id="ally" class="hp"></div>
+        </div>
       </td>
       <td>
-        <div class="right hp-bar"></div>
+        <div class="right hp-bar">
+          <div id="opponent" class="hp"></div>
+        </div>
       </td>
     </tr>
     <tr>
       <td>
-        <span>Ally - ATK : 10 , HP : 100</span>
+        <span class="details">Ally - ATK : 10 , HP : 100</span>
       </td>
       <td>
-        <span class="right">Opponent - ATK : 10 , HP : 100</span>
+        <span class="details right"><span class="right">Opponent - ATK : 10 , HP : 100</span></span>
       </td>
     </tr>
   </table>
   <center>
-    <h2 id="q">1+1</h2>
+    <div class="question">
+      <span id="q">1+1</span>
+    </div>
+    <label>Answer : </label>
     <input type="text" id="ans">
     <input type="button" id="submit" value="Submit">
   </center>
