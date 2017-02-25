@@ -1,0 +1,15 @@
+body {
+  background-color: #201020;
+  color: #FFFFFF;
+  margin: 0px;
+}
+
+.header{
+  border-spacing: 0px;
+  width: 100%;
+}
+
+.header tr td {
+  background-color: #FFFFFF;
+  width: 50%;
+}
