@@ -1,8 +1,4 @@
-body {
-  background-color: #201020;
-  color: #ff0000;
-  margin: 0px;
-}
+
 
 .header{
   border-spacing: 0px;
@@ -16,4 +12,16 @@ body {
 
 #name{
   float: right;
+}
+
+h2{
+  margin: 0px;
+  padding: 1rem;
+}
+
+body {
+  background-color: #201020;
+  color: #ff0000;
+  margin: 0px;
+  height: 100vh;
 }
