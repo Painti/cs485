@@ -10,14 +10,14 @@ function MathBattle() { // สร้าง Object ชื่อ MathBattle
   // บอกเวลาปัจจุบัน
   var timenow = () => {
     var date = new Date();
-    var pad = function(num){
-      if(num < 10){
+    var pad = function(num) {
+      if (num < 10) {
         num = '0' + num;
       }
       return num;
     }
-    return  pad(date.getDate()) + '/' +  pad(date.getMonth()) + '/' + date.getFullYear() + ' ' +
-       pad(date.getHours()) + ':' +  pad(date.getMinutes()) + ':' + pad(date.getSeconds());
+    return pad(date.getDate()) + '/' + pad(date.getMonth()) + '/' + date.getFullYear() + ' ' +
+      pad(date.getHours()) + ':' + pad(date.getMinutes()) + ':' + pad(date.getSeconds());
   };
 
   // สร้างฟังก์ชันที่ให้ค่าเริ่มต้นกับแอพ

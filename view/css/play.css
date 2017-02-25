@@ -1,6 +1,4 @@
-
-
-.header{
+.header {
   border-spacing: 0px;
   width: 100%;
 }
@@ -10,11 +8,11 @@
   width: 50%;
 }
 
-#name{
+#name {
   float: right;
 }
 
-h2{
+h2 {
   margin: 0px;
   padding: 1rem;
 }
