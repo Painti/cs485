@@ -1,20 +1,21 @@
-.header {
+.bar {
   border-spacing: 0px;
   width: 100%;
 }
 
-.header tr td {
+.bar tr td {
   background-color: #FFFFFF;
   width: 50%;
 }
 
-#name {
+.right {
   float: right;
 }
 
-h2 {
+.header {
   margin: 0px;
-  padding: 1rem;
+  padding: 0.75rem;
+  font-size: 1.5rem;
 }
 
 body {
