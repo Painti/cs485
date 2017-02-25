@@ -14,6 +14,7 @@ function MathBattle() { // สร้าง Object ชื่อ MathBattle
       if(num < 10){
         num = '0' + num;
       }
+      return num;
     }
     return  pad(date.getDate()) + '/' +  pad(date.getMonth()) + '/' + date.getFullYear() + ' ' +
        pad(date.getHours()) + ':' +  pad(date.getMinutes()) + ':' + pad(date.getSeconds());
