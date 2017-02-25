@@ -13,3 +13,7 @@ body {
   background-color: #FFFFFF;
   width: 50%;
 }
+
+#name{
+  float: right;
+}

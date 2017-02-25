@@ -10,15 +10,19 @@
   <script src="/js/jquery-3.1.1.js" charset="utf-8"></script>
   <script src="/js/jquery.cookie.js"></script>
   <script type="text/javascript">
-    if($.cookie("name") === undefined){
+    if ($.cookie("name") === undefined) {
       window.location.href = '/';
-    } else if($.cookie("level") === undefined){
+    } else if ($.cookie("level") === undefined) {
       window.location.href = '/level';
     }
   </script>
 </head>
 
 <body>
+  <h1>
+    <span id="level"></span>
+    <span id="name"></span>
+  </h1>
   <table class="header">
     <tr>
       <td>
@@ -29,17 +33,16 @@
       </td>
     </tr>
   </table>
-  <h1 id="name"></h1>
-  <h2 id="level"></h2>
-  <h2 id="q">1+1</h2>
-  <input type="text" id="ans">
-  <input type="button" id="submit" value="Submit">
+  <center>
+    <h2 id="q">1+1</h2>
+    <input type="text" id="ans">
+    <input type="button" id="submit" value="Submit">
+  </center>
 
   <script type="text/javascript">
-    if($.cookie("name") !== undefined || $.cookie("level") !== undefined){
-      $('#name').text('Name : ' + decodeURI($.cookie("name")));
-      $('#level').text('Level : ' + $.cookie("level"));
-    }
+    $('#name').text('Name : ' + decodeURI($.cookie("name")));
+    $('#level').text('Level : ' + $.cookie("level"));
+
     $('#submit').click(function() {
       $('#ans').val('').focus();
     });
