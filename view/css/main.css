@@ -1,3 +1,17 @@
-body{
-  background-color: rgb(14, 217, 34);
+body {
+    background-color: BLACK;
+}
+
+.size-imgHead {
+  height: 33%;
+  width: 100%;
+}
+.size-imgForm{
+    height: 33%;
+    width: 50%;
+}
+.size-imgfoot {
+  height: 33%;
+  width: 100%;
+  bottom :0px;
 }
