@@ -59,44 +59,46 @@
       <input type="button" id="submit" value="Submit">
     </div>
   </center>
-  <center>
+  <div class="action">
     <div id="mario">
-      <div id="fireball"></div>
     </div>
     <div id="blank">
+      <div id="fireball"></div>
+      <div id="koopaball"></div>
     </div>
     <div id="enemy">
-
     </div>
-  </center>
+  </div>
   <script type="text/javascript">
     $('#name').text('Name : ' + decodeURI($.cookie("name")));
     $('#level').text('Level : ' + $.cookie("level"));
     $('.content').hide();
     $('#count').hide();
+    $('#koopaball').hide();
+    // $('#fireball').hide();
 
     var countdown;
     var q;
     var res;
-    const delay = 5000;
+    const delay = 2000;
 
     var hp_a = 100;
     var hp_o = 100;
 
     $('#start').focus();
     $('#start').focusout(function() {
-      if($(this).is(":visible")){
+      if ($(this).is(":visible")) {
         $(this).focus();
       }
     })
 
     $('#ans').focusout(function() {
-      if($(this).is(":visible")){
+      if ($(this).is(":visible")) {
         $(this).focus();
       }
     })
 
-    function act(){
+    function act() {
       $('#ans').val('');
       clearInterval(countdown);
       $('#start').text('Next');
@@ -107,41 +109,53 @@
       }, delay);
     }
 
-    function atkOpponent(){
+    function animateATK(who){
+      who.show();
+      var sec = delay/1000;
+      var x = setInterval(function() {
+        sec--;
+        if(sec <= 0){
+          who.hide();
+          clearInterval(x);
+        }
+      }, 1000);
+    }
+
+    function atkOpponent() {
       hp_o -= 10;
-      $('#opponent').css("width", hp_o+'%');
-      if(hp_o <= 20){
+      $('#opponent').css("width", hp_o + '%');
+      if (hp_o <= 20) {
         $('#opponent').css("background-color", "red");
-      } else if(hp_o <= 60){
+      } else if (hp_o <= 60) {
         $('#opponent').css("background-color", "yellow");
       } else {
         $('#opponent').css("background-color", "#0dc90d");
       }
 
-      if(hp_o <= 0){
+      if (hp_o <= 0) {
         var form = $('<form action="/result" method="POST">' +
-                       '<input type="hidden" name="result" value="win">' +
-                     '</form>');
+          '<input type="hidden" name="result" value="win">' +
+          '</form>');
         $(document.body).append(form);
         // form.submit();
       }
     }
 
-    function atkAlly(){
+    function atkAlly() {
       hp_a -= 50;
-      $('#ally').css("width", hp_a+'%');
-      if(hp_a <= 20){
+      $('#ally').css("width", hp_a + '%');
+      if (hp_a <= 20) {
         $('#ally').css("background-color", "red");
-      } else if(hp_a <= 60){
+      } else if (hp_a <= 60) {
         $('#ally').css("background-color", "yellow");
       } else {
         $('#ally').css("background-color", "#0dc90d");
       }
 
-      if(hp_a <= 0){
+      if (hp_a <= 0) {
         var form = $('<form action="/result" method="POST">' +
-                       '<input type="hidden" name="result" value="lose">' +
-                     '</form>');
+          '<input type="hidden" name="result" value="lose">' +
+          '</form>');
         $(document.body).append(form);
         // form.submit();
       }
@@ -164,6 +178,7 @@
         if (count < 0) {
           $('#count').html('<font color="red">Time out</font>');
           act();
+          animateATK($('#koopaball'));
           setTimeout(function() {
             atkAlly();
           }, delay);
@@ -176,11 +191,14 @@
       var a = $('#ans').val();
       if (a == res) {
         $('#count').html('<font color="#0dc90d" size="5">right</font>');
+        animateATK($('#fireball'));
         setTimeout(function() {
           atkOpponent();
         }, delay);
       } else {
         $('#count').html('<font color="red" size="5">Wrong</font>');
+        animateATK($('#koopaball'));
+        animateATK($('#fireball'));
         setTimeout(function() {
           atkAlly();
         }, delay);
@@ -189,9 +207,9 @@
     });
 
     /****************************************
-    *    โค้ดส่วนนี้ นำมาจาก
-    *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
-    */
+     *    โค้ดส่วนนี้ นำมาจาก
+     *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
+     */
     $('#ans').keypress(function(e) {
       if (e.which == 13) {
         $('#submit').click();
