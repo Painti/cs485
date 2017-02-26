@@ -1,0 +1,23 @@
+@font-face {
+    font-family: font8bit;
+    src: url('/font/8bit.TTF');
+}
+
+body{
+    background-image: url(/img/bg-levelSelection.jpg);
+
+  }
+
+h1 {
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 40px;
+    color:white;
+    font-family: font8bit;
+}
+
+div.relative{
+      position: relative;
+      left: 240px;
+
+}
