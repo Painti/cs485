@@ -36,7 +36,7 @@
       </td>
       <td>
         <div class="right hp-bar right-oblique">
-          <div id="opponent" class="hp"></div>
+          <div id="opponent" class="hp right"></div>
         </div>
       </td>
     </tr>
@@ -79,6 +79,9 @@
     var q;
     var res;
 
+    var hp_a = 100;
+    var hp_o = 100;
+
     function act(){
       $('#ans').val('');
       clearInterval(countdown);
@@ -89,6 +92,46 @@
       }, 1000);
     }
 
+    function atkOpponent(){
+      hp_o -= 10;
+      $('#opponent').css("width", hp_o+'%');
+      if(hp_o <= 20){
+        $('#opponent').css("background-color", "red");
+      } else if(hp_o <= 60){
+        $('#opponent').css("background-color", "yellow");
+      } else {
+        $('#opponent').css("background-color", "#0dc90d");
+      }
+
+      if(hp_o <= 0){
+        var form = $('<form action="/result" method="POST">' +
+                       '<input type="hidden" name="result" value="win">' +
+                     '</form>');
+        $(document.body).append(form);
+        form.submit();
+      }
+    }
+
+    function atkAlly(){
+      hp_a -= 50;
+      $('#ally').css("width", hp_a+'%');
+      if(hp_a <= 20){
+        $('#ally').css("background-color", "red");
+      } else if(hp_a <= 60){
+        $('#ally').css("background-color", "yellow");
+      } else {
+        $('#ally').css("background-color", "#0dc90d");
+      }
+
+      if(hp_a <= 0){
+        var form = $('<form action="/result" method="POST">' +
+                       '<input type="hidden" name="result" value="lose">' +
+                     '</form>');
+        $(document.body).append(form);
+        form.submit();
+      }
+    }
+
     $('#start').click(function() {
       $(this).hide();
       $('.content').show();
@@ -97,7 +140,7 @@
       q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
       res = eval(q);
       $('#q').text(q);
-      $('#count').text(res);
+      $('#ans').focus();
 
       var count = 10;
       countdown = setInterval(function() {
@@ -106,6 +149,7 @@
         if (count < 0) {
           $('#count').html('<font color="red">Time out!</font>');
           act();
+          atkAlly();
         }
       }, 1000);
 
@@ -115,8 +159,10 @@
       var a = $('#ans').val();
       if (a == res) {
         $('#count').html('<font color="#0dc90d">Correct!</font>');
+        atkOpponent();
       } else {
         $('#count').html('<font color="red">Wrong!</font>');
+        atkAlly();
       }
       act();
     });

@@ -10,7 +10,6 @@ var getRoutes = {};
 getRoutes['/'] = require('./get/index.js').getPage;
 getRoutes['/level'] = require('./get/level.js').getPage;
 getRoutes['/play'] = require('./get/play.js').getPage;
-getRoutes['/result'] = require('./get/result.js').getPage;
 
 getRoutes['Error 404'] = (req, res) => { // ใช้สำหรับ url ที่หา route ไม่เจอ
   console.log('  - ERROR 404 : ' + req.url + ' not found!!');
