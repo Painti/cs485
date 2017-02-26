@@ -7,6 +7,7 @@
   <title>Math Battle</title>
   <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
   <link rel="stylesheet" href="/css/play.css">
+  <link rel="stylesheet" href="/css/play_action.css">
   <script src="/js/jquery-3.1.1.js" charset="utf-8"></script>
   <script src="/js/jquery.cookie.js"></script>
   <script type="text/javascript">
@@ -35,16 +36,16 @@
       </td>
       <td>
         <div class="right hp-bar right-oblique">
-          <div id="opponent" class="hp"></div>
+          <div id="opponent" class="hp right"></div>
         </div>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="details">Ally - ATK : 10 , HP : 100</span>
+        <span class="details detail-l">ME</span>
       </td>
       <td>
-        <span class="details right"><span class="right">Opponent - ATK : 10 , HP : 100</span></span>
+        <span class="details right"><span class="right detail-r">Koopa</span></span>
       </td>
     </tr>
   </table>
@@ -58,62 +59,208 @@
       <input type="button" id="submit" value="Submit">
     </div>
   </center>
-  <center>
-    <img src="/img/me.png" alt="mario" width="100px" id="mario">
-    <img src="/img/fireball.png" alt="fireball" width="100px" id="fireball">
-  </center>
+  <div class="action">
+    <div id="mario">
+    </div>
+    <div id="blank">
+      <div id="fireball"></div>
+      <div id="koopaball"></div>
+    </div>
+    <div id="enemy">
+    </div>
+  </div>
   <script type="text/javascript">
     $('#name').text('Name : ' + decodeURI($.cookie("name")));
     $('#level').text('Level : ' + $.cookie("level"));
     $('.content').hide();
     $('#count').hide();
+    $('#koopaball').hide();
+
+    var countdown;
+    var q;
+    var res;
+    const delay = 2000;
+
+    var hp_a = 100;
+    var hp_o = 100;
+
+    $('#start').focus();
+    $('#start').focusout(function() {
+      if ($(this).is(":visible")) {
+        $(this).focus();
+      }
+    })
+
+    $('#ans').focusout(function() {
+      if ($(this).is(":visible")) {
+        $(this).focus();
+      }
+    })
+
+    function reset() {
+      $('#ans').val('');
+      clearInterval(countdown);
+      $('#start').text('Next');
+      $('.content').hide();
+      setTimeout(function() {
+        $('#start').show();
+        $('#start').focus();
+      }, delay);
+    }
+
+    function koopaFireAnimate() {
+      $('#koopaball').show();
+      var sec = delay / 1000;
+      var x = setInterval(function() {
+        sec--;
+        if (sec <= 0) {
+          $('#koopaball').hide();
+          clearInterval(x);
+        }
+      }, 1000);
+    };
+
+    function fireballAnimate() {
+      $('#fireball').addClass('bounce');
+      var sec = delay / 1000;
+      var x = setInterval(function() {
+        sec--;
+        if (sec <= 0) {
+          $('#fireball').removeClass('bounce');
+          clearInterval(x);
+        }
+      }, 1000);
+    };
+
+    function decreaseOppHP() {
+      hp_o -= 10;
+      $('#opponent').css("width", hp_o + '%');
+      if (hp_o <= 20) {
+        $('#opponent').css("background-color", "red");
+      } else if (hp_o <= 60) {
+        $('#opponent').css("background-color", "yellow");
+      } else {
+        $('#opponent').css("background-color", "#0dc90d");
+      }
+
+      if (hp_o <= 0) {
+        var form = $('<form action="/result" method="POST">' +
+          '<input type="hidden" name="result" value="win">' +
+          '</form>');
+        $(document.body).append(form);
+        form.submit();
+      }
+    }
+
+    function decreaseAllyHP() {
+      hp_a -= 10;
+      $('#ally').css("width", hp_a + '%');
+      if (hp_a <= 20) {
+        $('#ally').css("background-color", "red");
+      } else if (hp_a <= 60) {
+        $('#ally').css("background-color", "yellow");
+      } else {
+        $('#ally').css("background-color", "#0dc90d");
+      }
+
+      if (hp_a <= 0) {
+        var form = $('<form action="/result" method="POST">' +
+          '<input type="hidden" name="result" value="lose">' +
+          '</form>');
+        $(document.body).append(form);
+        form.submit();
+      }
+    }
+
+    function koopaAtk() {
+      reset();
+      koopaFireAnimate();
+      setTimeout(function() {
+        decreaseAllyHP();
+        $('#fireball').addClass('blink');
+        $('#mario').addClass('blink');
+        var sec = 1;
+        var x = setInterval(function() {
+          sec--;
+          if (sec <= 0) {
+            $('#fireball').removeClass('blink');
+            $('#mario').removeClass('blink');
+            clearInterval(x);
+          }
+        }, 1000);
+      }, delay);
+    }
+
+    function marioAtk() {
+      reset();
+      fireballAnimate();
+      setTimeout(function() {
+        decreaseOppHP();
+        $('#enemy').addClass('blink');
+        var sec = 1;
+        var x = setInterval(function() {
+          sec--;
+          if (sec <= 0) {
+            $('#enemy').removeClass('blink');
+            clearInterval(x);
+          }
+        }, 1000);
+      }, delay);
+    }
+
+    function randomQuestion(level) {
+      if (level == 1) {
+        return Math.floor((Math.random() * 9) + 1) + '+' + Math.floor((Math.random() * 9) + 1);
+      } else if (level == 2) {
+        return Math.floor((Math.random() * 99) + 1) + '+' + Math.floor((Math.random() * 99) + 1);
+      } else {
+        return Math.floor((Math.random() * 89) + 10) + '+' + Math.floor((Math.random() * 89) + 10) + '+' + Math.floor((Math.random() * 89) + 10);
+      }
+    }
 
     $('#start').click(function() {
       $(this).hide();
       $('.content').show();
       $('#count').show();
-      $('#count').text('Start!');
-      var res = '';
-      var q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
+      $('#count').html('<font size="5">start</font>');
+      q = randomQuestion($.cookie("level"));
+        res = eval(q);
       $('#q').text(q);
+      $('#ans').focus();
+
       var count = 10;
-      var countdown = setInterval(function() {
+      countdown = setInterval(function() {
         $('#count').text(count);
-        if (count == 0) {
-          $('#count').html('<font color="red">Time out!</font>');
-        }
         count--;
         if (count < 0) {
-          clearInterval(countdown);
+          $('#count').html('<font color="red">Time out</font>');
+          koopaAtk();
         }
       }, 1000);
 
-      $('#submit').click(function() {
-        if ($('#ans').val() == eval(q)) {
-          $('#count').html('<font color="#0dc90d">Correct!</font>');
-        } else {
-          $('#count').html('<font color="red">Wrong!</font>');
-        }
-        clearInterval(countdown);
-        $('#ans').val('');
-        $('#start').text('Next question.');
-        $('.content').hide();
-        setTimeout(function() {
-          $('#start').show();
-        }, 5000);
-      });
-
-      /****************************************
-       *    โค้ดส่วนนี้ นำมาจาก
-       *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
-       */
-      $('#ans').keypress(function(e) {
-        if (e.which == 13) {
-          $('#submit').click();
-        }
-      });
-      /***************************************/
     });
+
+    $('#submit').click(function() {
+      var a = $('#ans').val();
+      if (a == res) {
+        $('#count').html('<font color="#0dc90d" size="5">right</font>');
+        marioAtk();
+      } else {
+        $('#count').html('<font color="red" size="5">Wrong</font>');
+        koopaAtk();
+      }
+    });
+
+    /****************************************
+     *    โค้ดส่วนนี้ นำมาจาก
+     *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
+     */
+    $('#ans').keypress(function(e) {
+      if (e.which == 13) {
+        $('#submit').click();
+      }
+    });
+    /***************************************/
   </script>
 </body>
 

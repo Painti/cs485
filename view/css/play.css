@@ -1,3 +1,8 @@
+@font-face {
+    font-family: font8bit;
+    src: url('/font/8bit.TTF');
+}
+
 body {
   background-color: #130a13;
   color: #DDD;
@@ -8,6 +13,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-family: font8bit;
 }
 
 
@@ -32,6 +38,7 @@ input[type=number], input[type=button], .start {
   border-radius: 3px;
   background-color: #fefefe;
   font-size: 1rem;
+  font-family: font8bit;
 }
 
 input[type=button] {
@@ -63,6 +70,12 @@ input[type=button]:active {
   padding-bottom: 0.35rem;
 }
 
+@media only screen and (max-width: 42em) {
+  .start {
+    font-size: 1.5rem;
+  }
+}
+
 .start:hover {
   background-color: #CCC;
 }
@@ -79,7 +92,7 @@ input[type=button]:active {
   margin: 0px;
   padding: 0.75rem;
   padding-bottom: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background-color: #400062;
 }
 
@@ -133,8 +146,18 @@ input[type=button]:active {
   width: 90%;
 }
 
+@media only screen and (min-width: 42em) {
+  .detail-l:after {
+    content: ' - ATK : 10 , HP : 100';
+  }
+
+  .detail-r:after {
+    content: ' - ATK : 10 , HP : 100';
+  }
+}
+
 #QA {
-  height: 6rem;
+  min-height: 6rem;
 }
 
 .answer {

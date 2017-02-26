@@ -1,0 +1,122 @@
+.action {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#blank {
+  display: inline-block;
+  box-sizing: padding-box;
+  width: calc(100% - 21rem);
+  position: relative;
+}
+
+@keyframes blink-animation {
+  50% { opacity: 0; }
+}
+
+.blink {
+  animation: blink-animation 0.5s linear infinite;
+}
+
+@keyframes bounce {
+  0% {
+    top: -5.2rem;
+    left: -11rem;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    top: -2.6rem;
+  }
+  20%, 40%, 60%, 80% {
+    top: -7.4rem;
+  }
+  100% {
+    top: -6.2rem;
+    left: 100%;
+  }
+}
+
+#fireball {
+  background-image: url(/img/fireball.png);
+  background-size: 100% 100%;
+  width: 2.6rem;
+  height: 2.6rem;
+  position: absolute;
+  top: -5.2rem;
+  left: -11rem;
+}
+
+.bounce {
+  animation: bounce;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes koopaATK {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+#koopaball {
+  background-image: url(/img/koopaball.png);
+  background-size: 100% 100%;
+  width: 4rem;
+  height: 1.25rem;
+  position: absolute;
+  top: -100px;
+  right: 0%;
+  animation: koopaATK;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+#enemy {
+  background-image: url(/img/enemy.png);
+}
+
+#mario {
+  background-image: url(/img/me.png);
+}
+
+#mario, #enemy {
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+  position: relative;
+}
+
+@media only screen and (max-width: 42em) {
+  @keyframes bounce {
+    0% {
+      top: -4.2rem;
+      left: -9rem;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      top: -2.6rem;
+    }
+    20%, 40%, 60%, 80% {
+      top: -6.4rem;
+    }
+    100% {
+      top: -5.2rem;
+      left: 100%;
+    }
+  }
+  #fireball {
+    width: 2.08rem;
+    height: 2.08rem;
+    top: -4.2rem;
+    left: -9rem;
+  }
+  #blank {
+    width: calc(100% - 17rem);
+  }
+  #mario, #enemy {
+    width: 8rem;
+    height: 8rem;
+  }
+}

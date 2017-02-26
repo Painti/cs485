@@ -10,7 +10,6 @@ var getRoutes = {};
 getRoutes['/'] = require('./get/index.js').getPage;
 getRoutes['/level'] = require('./get/level.js').getPage;
 getRoutes['/play'] = require('./get/play.js').getPage;
-getRoutes['/result'] = require('./get/result.js').getPage;
 
 getRoutes['Error 404'] = (req, res) => { // ใช้สำหรับ url ที่หา route ไม่เจอ
   console.log('  - ERROR 404 : ' + req.url + ' not found!!');
@@ -55,6 +54,14 @@ files.forEach(file => {
     var ext = path.extname(file).toLowerCase(); // หานามสกุลของภาพ
     ext = ext.substr(1, ext.length - 1); // ตัด "." (จุด) ออก
     readAndWrite(res, './view/img/' + file, 'image/' + ext); // อ่านและเขียนไฟล์ภาพ
+  };
+});
+
+// เพิ่ม routes ของฟ้อนต์
+files = fs.readdirSync('./view/font'); // หาaฟ้อนต์ทั้งหมด
+files.forEach(file => {
+  getRoutes['/font/' + file] = (req, res) => { //เพิ่ม route ให้กับaฟ้อนต์
+    readAndWrite(res, './view/font/' + file, 'font/opentype'); // อ่านและเขียนไฟล์ฟ้อน
   };
 });
 
