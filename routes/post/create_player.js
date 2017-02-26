@@ -6,7 +6,6 @@ module.exports = {
     req.on('data', function(data) {
       body += data;
     });
-
     req.on('end', function() {
       var post = qs.parse(body);
       res.setHeader('Set-Cookie', 'name=' + encodeURI(post.name));
@@ -15,5 +14,6 @@ module.exports = {
       });
       res.end();
     });
+
   }
 };

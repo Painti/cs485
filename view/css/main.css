@@ -1,3 +1,30 @@
-body{
-  background-color: rgb(14, 217, 34);
+body {
+    background-color: BLACK;
+}
+
+.bg-head {
+    position: fixed;
+    top: 0px;
+}
+.bg-center {
+    position: fixed;
+}
+.bg-bottom {
+    position: fixed;
+    bottom: 0px;
+}
+
+
+.size-imgHead {
+  height: 100%;
+  width: 100%;
+
+}
+.size-imgForm{
+    height: 100%;
+    width: 100%;
+}
+.size-imgfoot {
+  height: 100%;
+  width: 100%;
 }
