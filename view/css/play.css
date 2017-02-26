@@ -2,7 +2,6 @@ body {
   background-color: #130a13;
   color: #DDD;
   margin: 0px;
-  height: 100vh;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -43,7 +42,7 @@ input[type=number]:focus {
   border: 2px solid #4cb3c9;
 }
 
-input[type=button]:focus {
+input[type=button]:hover {
   background-color: #0f1958;
   border-color: #0a134d;
   border-radius: 3px;
