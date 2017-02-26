@@ -63,6 +63,12 @@ input[type=button]:active {
   padding-bottom: 0.35rem;
 }
 
+@media only screen and (max-width: 42em) {
+  .start {
+    font-size: 1.5rem;
+  }
+}
+
 .start:hover {
   background-color: #CCC;
 }
@@ -79,7 +85,7 @@ input[type=button]:active {
   margin: 0px;
   padding: 0.75rem;
   padding-bottom: 0.25rem;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   background-color: #400062;
 }
 
