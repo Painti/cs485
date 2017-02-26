@@ -65,6 +65,9 @@
     </div>
     <div id="blank">
     </div>
+    <div id="enemy">
+
+    </div>
   </center>
   <script type="text/javascript">
     $('#name').text('Name : ' + decodeURI($.cookie("name")));
@@ -72,27 +75,32 @@
     $('.content').hide();
     $('#count').hide();
 
+    var countdown;
+    var q;
+    var res;
+
+    function act(){
+      $('#ans').val('');
+      clearInterval(countdown);
+      $('#start').text('Next question.');
+      $('.content').hide();
+      setTimeout(function() {
+        $('#start').show();
+      }, 1000);
+    }
+
     $('#start').click(function() {
       $(this).hide();
       $('.content').show();
       $('#count').show();
       $('#count').text('Start!');
-      var res = '';
-      var q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
+      q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
+      res = eval(q);
       $('#q').text(q);
+      $('#count').text(res);
 
-      function act(){
-        clearInterval(countdown);
-        $('#ans').val('');
-        $('#start').text('Next question.');
-        $('.content').hide();
-        setTimeout(function() {
-          $('#start').show();
-        }, 5000);
-      }
-
-      var count = 3;
-      var countdown = setInterval(function() {
+      var count = 10;
+      countdown = setInterval(function() {
         $('#count').text(count);
         count--;
         if (count < 0) {
@@ -101,26 +109,28 @@
         }
       }, 1000);
 
-      $('#submit').click(function() {
-        if ($('#ans').val() == eval(q)) {
-          $('#count').html('<font color="#0dc90d">Correct!</font>');
-        } else {
-          $('#count').html('<font color="red">Wrong!</font>');
-        }
-        act();
-      });
-
-      /****************************************
-       *    โค้ดส่วนนี้ นำมาจาก
-       *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
-       */
-      $('#ans').keypress(function(e) {
-        if (e.which == 13) {
-          $('#submit').click();
-        }
-      });
-      /***************************************/
     });
+
+    $('#submit').click(function() {
+      var a = $('#ans').val();
+      if (a == res) {
+        $('#count').html('<font color="#0dc90d">Correct!</font>');
+      } else {
+        $('#count').html('<font color="red">Wrong!</font>');
+      }
+      act();
+    });
+
+    /****************************************
+    *    โค้ดส่วนนี้ นำมาจาก
+    *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
+    */
+    $('#ans').keypress(function(e) {
+      if (e.which == 13) {
+        $('#submit').click();
+      }
+    });
+    /***************************************/
   </script>
 </body>
 
