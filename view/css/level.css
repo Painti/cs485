@@ -1,46 +1,63 @@
 @font-face {
-    font-family: font8bit;
-    src: url('/font/8bit.TTF');
+  font-family: font8bit;
+  src: url('/font/8bit.TTF');
 }
 
-body{
-    background-image: url(/img/bg-levelSelection.jpg);
+body {
+  background-color: black;
+  /*height: 100vh;*/
+  /*width: 100%;*/
+  margin: 0px;
+}
+/*
+div[class*="relative"] {
+  display: inline;
+}
 
+form {
+  display: inline-block;
+}*/
+
+.head {
+  padding-top: 40px;
+  letter-spacing: 3px;
+  color: white;
+  font-family: font8bit;
+  margin: 0px;
+  font-size: 50px;
+}
+
+/*.top {
+  display: inline;
+  height: 0rem;
+  width: 100%;
+  position: relative;
+}*/
+
+.left {
+  background-image: url('/img/zlatans.jpg');
+  width: 53px;
+  height: 100vh;
+  float: left;
+}
+
+.center {
+  width: calc(100% - 106px);
+  float: left;
+  height: 100vh;
+}
+
+.right {
+  background-image: url('/img/zlatans.jpg');
+  width: 53px;
+  height: 100vh;
+  float: left;
+}
+
+/*.bot {}*/
+
+@media only screen and (max-width: 42em) {
+  h1 {
+    font-size: 30px;
   }
-
-
-
-  div[class*="relative"]{
-    display: inline;
-
-  }
-
-  form{
-    display: inline-block;
-
-  }
-
-
-h1 {
-    text-align: center;
-    letter-spacing: 3px;
-    font-size: 50px;
-    color:white;
-    font-family: font8bit;
-}
-
-
-div.relative1{
-      position: relative;
-      left: 19% ;
-}
-
-div.relative2{
-      position: relative;
-      left: 42%;
-}
-
-div.relative3{
-      position: relative;
-      left: 64%;
 }

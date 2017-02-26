@@ -145,7 +145,7 @@
 
       if (hp_o <= 0) {
         var form = $('<form action="/result" method="POST">' +
-          '<input type="hidden" name="result" value="win">' +
+          '<input type="hidden" name="result" value="winner">' +
           '</form>');
         $(document.body).append(form);
         form.submit();
@@ -153,7 +153,7 @@
     }
 
     function decreaseAllyHP() {
-      hp_a -= 10;
+      hp_a -= 100;
       $('#ally').css("width", hp_a + '%');
       if (hp_a <= 20) {
         $('#ally').css("background-color", "red");
@@ -165,7 +165,7 @@
 
       if (hp_a <= 0) {
         var form = $('<form action="/result" method="POST">' +
-          '<input type="hidden" name="result" value="lose">' +
+          '<input type="hidden" name="result" value="loser">' +
           '</form>');
         $(document.body).append(form);
         form.submit();
