@@ -16,8 +16,17 @@ h1 {
     font-family: font8bit;
 }
 
-div.relative{
+div.relative1{
       position: relative;
       left: 240px;
+}
 
+div.relative2{
+      position: relative;
+      left: 660px;
+}
+
+div.relative3{
+      position: relative;
+      left: 1060px;
 }
