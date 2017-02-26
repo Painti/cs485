@@ -42,10 +42,10 @@
     </tr>
     <tr>
       <td>
-        <span class="details">Ally - ATK : 10 , HP : 100</span>
+        <span class="details detail-l">ME</span>
       </td>
       <td>
-        <span class="details right"><span class="right">Opponent - ATK : 10 , HP : 100</span></span>
+        <span class="details right"><span class="right detail-r">Koopa</span></span>
       </td>
     </tr>
   </table>
@@ -82,13 +82,21 @@
     var hp_a = 100;
     var hp_o = 100;
 
+    $('#start').focus();
+    $('#start').focusout(function() {
+      if($(this).is(":visible")){
+        $(this).focus();
+      }
+    })
+
     function act(){
       $('#ans').val('');
       clearInterval(countdown);
-      $('#start').text('Next question.');
+      $('#start').text('Next');
       $('.content').hide();
       setTimeout(function() {
         $('#start').show();
+        $('#start').focus();
       }, 1000);
     }
 
@@ -108,7 +116,7 @@
                        '<input type="hidden" name="result" value="win">' +
                      '</form>');
         $(document.body).append(form);
-        form.submit();
+        // form.submit();
       }
     }
 
@@ -128,7 +136,7 @@
                        '<input type="hidden" name="result" value="lose">' +
                      '</form>');
         $(document.body).append(form);
-        form.submit();
+        // form.submit();
       }
     }
 
@@ -136,7 +144,7 @@
       $(this).hide();
       $('.content').show();
       $('#count').show();
-      $('#count').text('Start!');
+      $('#count').html('<font size="5">start</font>');
       q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
       res = eval(q);
       $('#q').text(q);
@@ -147,7 +155,7 @@
         $('#count').text(count);
         count--;
         if (count < 0) {
-          $('#count').html('<font color="red">Time out!</font>');
+          $('#count').html('<font color="red">Time out</font>');
           act();
           atkAlly();
         }
@@ -158,10 +166,10 @@
     $('#submit').click(function() {
       var a = $('#ans').val();
       if (a == res) {
-        $('#count').html('<font color="#0dc90d">Correct!</font>');
+        $('#count').html('<font color="#0dc90d" size="5">right</font>');
         atkOpponent();
       } else {
-        $('#count').html('<font color="red">Wrong!</font>');
+        $('#count').html('<font color="red" size="5">Wrong</font>');
         atkAlly();
       }
       act();

@@ -38,6 +38,7 @@ input[type=number], input[type=button], .start {
   border-radius: 3px;
   background-color: #fefefe;
   font-size: 1rem;
+  font-family: font8bit;
 }
 
 input[type=button] {
@@ -145,8 +146,18 @@ input[type=button]:active {
   width: 90%;
 }
 
+@media only screen and (min-width: 42em) {
+  .detail-l:after {
+    content: ' - ATK : 10 , HP : 100';
+  }
+
+  .detail-r:after {
+    content: ' - ATK : 10 , HP : 100';
+  }
+}
+
 #QA {
-  height: 6rem;
+  min-height: 6rem;
 }
 
 .answer {
