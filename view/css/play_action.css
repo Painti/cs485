@@ -11,7 +11,9 @@
 }
 
 @keyframes blink-animation {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 .blink {
@@ -94,16 +96,20 @@
     0% {
       top: -4.2rem;
       left: -9rem;
+      transform: rotate(0deg);
     }
     10%, 30%, 50%, 70%, 90% {
       top: -2.6rem;
+      transform: rotate(180deg);
     }
     20%, 40%, 60%, 80% {
       top: -6.4rem;
+      transform: rotate(0deg);
     }
     100% {
       top: -5.2rem;
       left: 100%;
+      transform: rotate(0deg);
     }
   }
   #fireball {
