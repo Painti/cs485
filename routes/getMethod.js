@@ -57,6 +57,14 @@ files.forEach(file => {
   };
 });
 
+// เพิ่ม routes ของฟ้อนต์
+files = fs.readdirSync('./view/font'); // หาaฟ้อนต์ทั้งหมด
+files.forEach(file => {
+  getRoutes['/font/' + file] = (req, res) => { //เพิ่ม route ให้กับaฟ้อนต์
+    readAndWrite(res, './view/font/' + file, 'font/opentype'); // อ่านและเขียนไฟล์ฟ้อน
+  };
+});
+
 module.exports = {
   routes: getRoutes
 };

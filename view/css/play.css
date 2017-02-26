@@ -1,3 +1,8 @@
+@font-face {
+    font-family: font8bit;
+    src: url('/font/8bit.TTF');
+}
+
 body {
   background-color: #130a13;
   color: #DDD;
@@ -8,6 +13,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-family: font8bit;
 }
 
 
