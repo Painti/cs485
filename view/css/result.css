@@ -45,6 +45,10 @@ body {
   font-size: 3rem;
 }
 
+.end {
+  background-image: url('/img/ending.png');
+}
+
 .bot {
   background-image: url('/img/box.png');
   height: calc(100vh - 28rem);
