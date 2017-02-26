@@ -145,7 +145,7 @@
 
       if (hp_o <= 0) {
         var form = $('<form action="/result" method="POST">' +
-          '<input type="hidden" name="result" value="win">' +
+          '<input type="hidden" name="result" value="winner">' +
           '</form>');
         $(document.body).append(form);
         form.submit();
@@ -165,7 +165,7 @@
 
       if (hp_a <= 0) {
         var form = $('<form action="/result" method="POST">' +
-          '<input type="hidden" name="result" value="lose">' +
+          '<input type="hidden" name="result" value="loser">' +
           '</form>');
         $(document.body).append(form);
         form.submit();
