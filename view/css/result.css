@@ -1,0 +1,77 @@
+@font-face {
+  font-family: font8bit;
+  src: url('/font/8bit.TTF');
+}
+
+body {
+  background-color: #000;
+  color: #FFF;
+  margin: 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: font8bit;
+}
+
+.btn {
+  font-size: 2.5rem;
+  font-family: font8bit;
+  padding: 0.75rem;
+  margin: 2rem;
+}
+
+.top {
+  height: 8rem;
+  width: 100%;
+  position:relative;
+}
+
+.ceil{
+  position: absolute;
+  background-image: url('/img/box.png');
+  background-repeat: repeat-x;
+  height: 3.2rem;
+  width: 100%;
+  bottom: 0px;
+}
+
+.mid {
+  margin-top: 2rem;
+  height: 18rem;
+  max-width: 100%;
+  font-size: 3rem;
+}
+
+.end {
+  background-image: url('/img/ending.png');
+}
+
+.bot {
+  background-image: url('/img/box.png');
+  height: calc(100vh - 28rem);
+  width: 100%;
+}
+
+@media only screen and (max-width: 42em) {
+  .top {
+    height: 3.2rem;
+  }
+
+  .mid {
+    height: 9rem;
+  }
+
+  .bot {
+    height: calc(100vh - 14.2rem);
+  }
+
+  .mid {
+    font-size: 1.5rem;
+  }
+  .btn {
+    font-size: 0.75rem;
+  }
+}
