@@ -49,10 +49,10 @@
     </tr>
   </table>
   <center id="QA">
-    <button class="start">Start</button>
+    <button id="start" class="start">Start</button>
     <div class="content">
       <div class="question">
-        <span id="q">17+51-85</span>
+        <span id="q"></span>
       </div>
       <label class="answer">Answer : <input type="number" id="ans"></label>
       <input type="button" id="submit" value="Submit">
@@ -67,12 +67,15 @@
     $('.content').hide();
     $('#count').hide();
 
-    $('.start').click(function() {
+    $('#start').click(function() {
       $(this).hide();
       $('.content').show();
       $('#count').show();
       $('#count').text('Start!');
-      var count = 5;
+      var res = '';
+      var q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
+      $('#q').text(q);
+      var count = 10;
       var countdown = setInterval(function() {
         $('#count').text(count);
         if (count == 0) {
@@ -85,9 +88,18 @@
       }, 1000);
 
       $('#submit').click(function() {
-        $('#ans').val('').focus();
-        $('#count').html('<font color="#0dc90d">Correct!</font>');
+        if ($('#ans').val() == eval(q)) {
+          $('#count').html('<font color="#0dc90d">Correct!</font>');
+        } else {
+          $('#count').html('<font color="red">Wrong!</font>');
+        }
         clearInterval(countdown);
+        $('#ans').val('');
+        $('#start').text('Next question.');
+        $('.content').hide();
+        setTimeout(function() {
+          $('#start').show();
+        }, 5000);
       });
 
       /****************************************
