@@ -8,6 +8,17 @@ body{
 
   }
 
+
+/***************************************/
+  div[class*="relative"]{
+    display: inline;
+  }
+
+  form{
+    display: inline-block;
+  }
+/***************************************/
+
 h1 {
     text-align: center;
     letter-spacing: 3px;
@@ -15,6 +26,7 @@ h1 {
     color:white;
     font-family: font8bit;
 }
+
 
 div.relative1{
       position: relative;

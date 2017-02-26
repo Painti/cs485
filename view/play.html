@@ -78,12 +78,19 @@
     var countdown;
     var q;
     var res;
+    const delay = 5000;
 
     var hp_a = 100;
     var hp_o = 100;
 
     $('#start').focus();
     $('#start').focusout(function() {
+      if($(this).is(":visible")){
+        $(this).focus();
+      }
+    })
+
+    $('#ans').focusout(function() {
       if($(this).is(":visible")){
         $(this).focus();
       }
@@ -97,7 +104,7 @@
       setTimeout(function() {
         $('#start').show();
         $('#start').focus();
-      }, 1000);
+      }, delay);
     }
 
     function atkOpponent(){
@@ -157,7 +164,9 @@
         if (count < 0) {
           $('#count').html('<font color="red">Time out</font>');
           act();
-          atkAlly();
+          setTimeout(function() {
+            atkAlly();
+          }, delay);
         }
       }, 1000);
 
@@ -167,10 +176,14 @@
       var a = $('#ans').val();
       if (a == res) {
         $('#count').html('<font color="#0dc90d" size="5">right</font>');
-        atkOpponent();
+        setTimeout(function() {
+          atkOpponent();
+        }, delay);
       } else {
         $('#count').html('<font color="red" size="5">Wrong</font>');
-        atkAlly();
+        setTimeout(function() {
+          atkAlly();
+        }, delay);
       }
       act();
     });
