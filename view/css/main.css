@@ -1,3 +1,37 @@
-body{
-  background-color: rgb(14, 217, 34);
+body {
+    background-color: BLACK;
+}
+
+.bg-center {
+    margin-top: 20%;
+    margin-left: 10%;
+    width: 40%;
+    height: 33%;
+}
+.bg-bottom {
+    position: fixed;
+    bottom: 0px;
+    height: 33%;
+}
+
+.bg-head {
+    position: fixed;
+    top: 0px;
+    height: 33%;
+}
+
+.size-imgHead {
+    height: auto;
+    width: auto;
+    max-width: 85%;
+    max-height: 407px;
+    margin-left: 12%;
+}
+
+.size-imgfoot {
+    height: auto;
+    width: auto;
+    max-width: 85%;
+    max-height: 507px;
+    margin-left: 12%;
 }

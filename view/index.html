@@ -2,19 +2,32 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Battle</title>
-  <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
-  <link rel="stylesheet" href="/css/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Battle</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
+
 <body>
-  <img src="/img/home.jpg" alt="home">
-  <form class="" action="createPlayer" method="post">
-    <input type="text" name="name" value="">
-    <input type="submit" name="" value="OK">
-  </form>
+    <div class="bg-head" style="width:90%;   margin:0 auto;"><img src="/img/bg-head.jpg" class="size-imgHead"> </div>
+
+
+    <div style="position: relative;
+  z-index: 1;
+  top: -12px;
+  left: 12px;" class="bg-center">
+        <img class="size-imgfoot" src="/img/bg-form.jpg">
+        <form action="createPlayer" method="post" style="position:relative;" class="bg-center">
+
+            <input type="text" name="name" value="" style="">
+            <input type="submit" name="" value="OK">
+        </form>
+    </div>
+
+    <div class="bg-bottom" style="width:90%">
+        <img class="size-imgfoot" src="/img/bg-bottom.jpg">
+    </div>
 </body>
 
 </html>
