@@ -75,7 +75,6 @@
     $('.content').hide();
     $('#count').hide();
     $('#koopaball').hide();
-    // $('#fireball').hide();
 
     var countdown;
     var q;
@@ -98,7 +97,7 @@
       }
     })
 
-    function act() {
+    function reset() {
       $('#ans').val('');
       clearInterval(countdown);
       $('#start').text('Next');
@@ -109,19 +108,31 @@
       }, delay);
     }
 
-    function animateATK(who){
-      who.show();
-      var sec = delay/1000;
+    function koopaFireAnimate() {
+      $('#koopaball').show();
+      var sec = delay / 1000;
       var x = setInterval(function() {
         sec--;
-        if(sec <= 0){
-          who.hide();
+        if (sec <= 0) {
+          $('#koopaball').hide();
           clearInterval(x);
         }
       }, 1000);
-    }
+    };
 
-    function atkOpponent() {
+    function fireballAnimate() {
+      $('#fireball').addClass('bounce');
+      var sec = delay / 1000;
+      var x = setInterval(function() {
+        sec--;
+        if (sec <= 0) {
+          $('#fireball').removeClass('bounce');
+          clearInterval(x);
+        }
+      }, 1000);
+    };
+
+    function decreaseOppHP() {
       hp_o -= 10;
       $('#opponent').css("width", hp_o + '%');
       if (hp_o <= 20) {
@@ -137,12 +148,12 @@
           '<input type="hidden" name="result" value="win">' +
           '</form>');
         $(document.body).append(form);
-        // form.submit();
+        form.submit();
       }
     }
 
-    function atkAlly() {
-      hp_a -= 50;
+    function decreaseAllyHP() {
+      hp_a -= 10;
       $('#ally').css("width", hp_a + '%');
       if (hp_a <= 20) {
         $('#ally').css("background-color", "red");
@@ -157,7 +168,53 @@
           '<input type="hidden" name="result" value="lose">' +
           '</form>');
         $(document.body).append(form);
-        // form.submit();
+        form.submit();
+      }
+    }
+
+    function koopaAtk() {
+      reset();
+      koopaFireAnimate();
+      setTimeout(function() {
+        decreaseAllyHP();
+        $('#fireball').addClass('blink');
+        $('#mario').addClass('blink');
+        var sec = 1;
+        var x = setInterval(function() {
+          sec--;
+          if (sec <= 0) {
+            $('#fireball').removeClass('blink');
+            $('#mario').removeClass('blink');
+            clearInterval(x);
+          }
+        }, 1000);
+      }, delay);
+    }
+
+    function marioAtk() {
+      reset();
+      fireballAnimate();
+      setTimeout(function() {
+        decreaseOppHP();
+        $('#enemy').addClass('blink');
+        var sec = 1;
+        var x = setInterval(function() {
+          sec--;
+          if (sec <= 0) {
+            $('#enemy').removeClass('blink');
+            clearInterval(x);
+          }
+        }, 1000);
+      }, delay);
+    }
+
+    function randomQuestion(level) {
+      if (level == 1) {
+        return Math.floor((Math.random() * 9) + 1) + '+' + Math.floor((Math.random() * 9) + 1);
+      } else if (level == 2) {
+        return Math.floor((Math.random() * 99) + 1) + '+' + Math.floor((Math.random() * 99) + 1);
+      } else {
+        return Math.floor((Math.random() * 89) + 10) + '+' + Math.floor((Math.random() * 89) + 10) + '+' + Math.floor((Math.random() * 89) + 10);
       }
     }
 
@@ -166,8 +223,8 @@
       $('.content').show();
       $('#count').show();
       $('#count').html('<font size="5">start</font>');
-      q = Math.floor((Math.random() * 100) + 1) + '+' + Math.floor((Math.random() * 100) + 1);
-      res = eval(q);
+      q = randomQuestion($.cookie("level"));
+        res = eval(q);
       $('#q').text(q);
       $('#ans').focus();
 
@@ -177,11 +234,7 @@
         count--;
         if (count < 0) {
           $('#count').html('<font color="red">Time out</font>');
-          act();
-          animateATK($('#koopaball'));
-          setTimeout(function() {
-            atkAlly();
-          }, delay);
+          koopaAtk();
         }
       }, 1000);
 
@@ -191,19 +244,11 @@
       var a = $('#ans').val();
       if (a == res) {
         $('#count').html('<font color="#0dc90d" size="5">right</font>');
-        animateATK($('#fireball'));
-        setTimeout(function() {
-          atkOpponent();
-        }, delay);
+        marioAtk();
       } else {
         $('#count').html('<font color="red" size="5">Wrong</font>');
-        animateATK($('#koopaball'));
-        animateATK($('#fireball'));
-        setTimeout(function() {
-          atkAlly();
-        }, delay);
+        koopaAtk();
       }
-      act();
     });
 
     /****************************************

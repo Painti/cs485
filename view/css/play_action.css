@@ -10,21 +10,29 @@
   position: relative;
 }
 
-@keyframes jump {
-	0% {
-		top: -5.2rem;
+@keyframes blink-animation {
+  50% { opacity: 0; }
+}
+
+.blink {
+  animation: blink-animation 0.5s linear infinite;
+}
+
+@keyframes bounce {
+  0% {
+    top: -5.2rem;
     left: -11rem;
-	}
-	10%,30%,50%,70%,90% {
-		top: -2.6rem;
-	}
-	20%,40%,60%,80% {
-		top: -7.4rem;
-	}
-	100% {
-		top: -5.2rem;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    top: -2.6rem;
+  }
+  20%, 40%, 60%, 80% {
+    top: -7.4rem;
+  }
+  100% {
+    top: -6.2rem;
     left: 100%;
-	}
+  }
 }
 
 #fireball {
@@ -35,14 +43,21 @@
   position: absolute;
   top: -5.2rem;
   left: -11rem;
-  /*animation: jump;
+}
+
+.bounce {
+  animation: bounce;
   animation-duration: 2s;
-  animation-timing-function: linear;*/
+  animation-timing-function: linear;
 }
 
 @keyframes koopaATK {
-    0% {right: 0%;}
-    100% {right: 100%;}
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: 100%;
+  }
 }
 
 #koopaball {
@@ -75,17 +90,31 @@
 }
 
 @media only screen and (max-width: 42em) {
+  @keyframes bounce {
+    0% {
+      top: -4.2rem;
+      left: -9rem;
+    }
+    10%, 30%, 50%, 70%, 90% {
+      top: -2.6rem;
+    }
+    20%, 40%, 60%, 80% {
+      top: -6.4rem;
+    }
+    100% {
+      top: -5.2rem;
+      left: 100%;
+    }
+  }
   #fireball {
     width: 2.08rem;
     height: 2.08rem;
     top: -4.2rem;
     left: -9rem;
   }
-
   #blank {
     width: calc(100% - 17rem);
   }
-
   #mario, #enemy {
     width: 8rem;
     height: 8rem;
