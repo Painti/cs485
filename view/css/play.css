@@ -15,13 +15,16 @@ body {
  *    โค้ดส่วนนี้ นำมาจาก
  *    http://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box
  */
+
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+
 /***************************************/
 
-input[type=number], input[type=button] {
+input[type=number], input[type=button], .start {
   outline: none;
   box-sizing: border-box;
   padding: .25rem;
@@ -48,6 +51,22 @@ input[type=button]:hover {
   border-radius: 3px;
 }
 
+.start {
+  font-size: 2rem;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+}
+
+.start:hover {
+  background-color: #CCC;
+}
+
+.start:active {
+  background-color: #AAA;
+}
+
 .right {
   float: right;
 }
@@ -57,25 +76,47 @@ input[type=button]:hover {
   padding: 0.75rem;
   padding-bottom: 0.25rem;
   font-size: 1.5rem;
+  background-color: #400062;
 }
 
 .bar {
   border-spacing: 0px;
   width: 100%;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  table-layout: fixed;
 }
 
-.bar tr td {
-  width: 50%;
+.bar td {
   padding-top: 0.5rem;
+  width: calc(50% - 5rem);
+}
+
+.time {
+  width: 10rem !important;
+  font-size: 2rem;
 }
 
 .hp-bar {
   background-color: rgba(0, 0, 0, 0);
-  width: 90%;
+  width: 100%;
   height: 1.5rem;
   display: block;
   border: 1px solid #7e7e7e;
+}
+
+.left-oblique {
+  -webkit-transform: skew(-30deg);
+  -moz-transform: skew(-30deg);
+  transform: skew(-30deg);
+}
+
+.right-oblique {
+  -webkit-transform: skew(30deg);
+  -moz-transform: skew(30deg);
+  transform: skew(30deg);
 }
 
 .hp {
@@ -86,6 +127,10 @@ input[type=button]:hover {
 
 .details {
   width: 90%;
+}
+
+#QA {
+  height: 6rem;
 }
 
 .answer {

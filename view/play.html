@@ -26,12 +26,15 @@
   <table class="bar">
     <tr>
       <td>
-        <div class="hp-bar">
+        <div class="hp-bar left-oblique">
           <div id="ally" class="hp"></div>
         </div>
       </td>
+      <td rowspan="2" class="time">
+        <center id="count"></center>
+      </td>
       <td>
-        <div class="right hp-bar">
+        <div class="right hp-bar right-oblique">
           <div id="opponent" class="hp"></div>
         </div>
       </td>
@@ -45,33 +48,59 @@
       </td>
     </tr>
   </table>
-  <center>
-    <div class="question">
-      <span id="q">17+51-85</span>
+  <center id="QA">
+    <button class="start">Start</button>
+    <div class="content">
+      <div class="question">
+        <span id="q">17+51-85</span>
+      </div>
+      <label class="answer">Answer : <input type="number" id="ans"></label>
+      <input type="button" id="submit" value="Submit">
     </div>
-    <label class="answer">Answer : <input type="number" id="ans"></label>
-    <input type="button" id="submit" value="Submit">
   </center>
-
+  <center>
+    <img src="/img/me.png" alt="mario" width="100px">
+  </center>
   <script type="text/javascript">
     $('#name').text('Name : ' + decodeURI($.cookie("name")));
     $('#level').text('Level : ' + $.cookie("level"));
+    $('.content').hide();
+    $('#count').hide();
 
-    $('#submit').click(function() {
-      $('#ans').val('').focus();
+    $('.start').click(function() {
+      $(this).hide();
+      $('.content').show();
+      $('#count').show();
+      $('#count').text('Start!');
+      var count = 5;
+      var countdown = setInterval(function() {
+        $('#count').text(count);
+        if (count == 0) {
+          $('#count').html('<font color="red">Time out!</font>');
+        }
+        count--;
+        if (count < 0) {
+          clearInterval(countdown);
+        }
+      }, 1000);
+
+      $('#submit').click(function() {
+        $('#ans').val('').focus();
+        $('#count').html('<font color="#0dc90d">Correct!</font>');
+        clearInterval(countdown);
+      });
+
+      /****************************************
+       *    โค้ดส่วนนี้ นำมาจาก
+       *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
+       */
+      $('#ans').keypress(function(e) {
+        if (e.which == 13) {
+          $('#submit').click();
+        }
+      });
+      /***************************************/
     });
-
-    /****************************************
-     *    โค้ดส่วนนี้ นำมาจาก
-     *    http://stackoverflow.com/questions/9146651/trigger-an-event-on-click-and-enter
-     */
-    $('#ans').keypress(function(e) {
-      if (e.which == 13) {
-        $('#submit').click();
-      }
-    });
-    /***************************************/
-
   </script>
 </body>
 
