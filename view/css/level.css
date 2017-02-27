@@ -27,12 +27,23 @@ form {
   font-size: 50px;
 }
 
-/*.top {
-  display: inline;
-  height: 0rem;
-  width: 100%;
-  position: relative;
-}*/
+.mid{
+  height: 40vh;
+  margin: 0px;
+}
+
+.bot{
+  height: 31vh;
+  margin: 0px;
+}
+
+.bot2{
+  height: calc(100% - 92px - 70vh);
+  background-image: url('/img/zlatans.jpg');
+  margin: 0px;
+}
+
+
 
 .left {
   background-image: url('/img/zlatans.jpg');
@@ -54,7 +65,16 @@ form {
   float: left;
 }
 
-/*.bot {}*/
+.tube{
+  background-image: url('/img/rooney.png');
+  background-size: 100% 100%;
+  width: calc(100% / 3);
+  height: 100%;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 0px;
+}
+
 
 @media only screen and (max-width: 42em) {
   h1 {
