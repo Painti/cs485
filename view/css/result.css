@@ -26,10 +26,10 @@ body {
 .top {
   height: 8rem;
   width: 100%;
-  position:relative;
+  position: relative;
 }
 
-.ceil{
+.ceil {
   position: absolute;
   background-image: url('/img/box.png');
   background-repeat: repeat-x;
@@ -43,10 +43,7 @@ body {
   height: 18rem;
   max-width: 100%;
   font-size: 3rem;
-}
-
-.end {
-  background-image: url('/img/ending.png');
+  position: relative;
 }
 
 .bot {
@@ -59,15 +56,12 @@ body {
   .top {
     height: 3.2rem;
   }
-
   .mid {
-    height: 9rem;
+    height: 13rem;
   }
-
   .bot {
-    height: calc(100vh - 14.2rem);
+    height: calc(100vh - 18.2rem);
   }
-
   .mid {
     font-size: 1.5rem;
   }
