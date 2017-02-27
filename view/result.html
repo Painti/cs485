@@ -17,13 +17,21 @@
   </div>
   <div class="mid">
     <center>You are {{$result}}</center>
-    <center><button class="btn">New game</button></center>
+    <center><button class="btn" onclick="gotoHome()">New game</button></center>
     <div class="end"></div>
   </div>
   <div class="bot"></div>
 </body>
 
 <script type="text/javascript">
+  function gotoHome(){
+    window.location.href = '/';
+  }
+
+  $('.btn').focus();
+  $('.btn').focusout(function() {
+      $(this).focus();
+  })
 </script>
 
 </html>

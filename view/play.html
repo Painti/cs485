@@ -102,10 +102,6 @@
       clearInterval(countdown);
       $('#start').text('Next');
       $('.content').hide();
-      setTimeout(function() {
-        $('#start').show();
-        $('#start').focus();
-      }, delay);
     }
 
     function koopaFireAnimate() {
@@ -153,7 +149,7 @@
     }
 
     function decreaseAllyHP() {
-      hp_a -= 100;
+      hp_a -= 10;
       $('#ally').css("width", hp_a + '%');
       if (hp_a <= 20) {
         $('#ally').css("background-color", "red");
@@ -173,12 +169,17 @@
     }
 
     function koopaAtk() {
-      reset();
       koopaFireAnimate();
       setTimeout(function() {
         decreaseAllyHP();
         $('#fireball').addClass('blink');
         $('#mario').addClass('blink');
+        if (hp_o > 0 || hp_a > 0) {
+          setTimeout(function() {
+            $('#start').show();
+            $('#start').focus();
+          }, delay);
+        }
         var sec = 1;
         var x = setInterval(function() {
           sec--;
@@ -189,14 +190,20 @@
           }
         }, 1000);
       }, delay);
+      reset();
     }
 
     function marioAtk() {
-      reset();
       fireballAnimate();
       setTimeout(function() {
         decreaseOppHP();
         $('#enemy').addClass('blink');
+        if (hp_o > 0 || hp_a > 0) {
+          setTimeout(function() {
+            $('#start').show();
+            $('#start').focus();
+          }, 1000);
+        }
         var sec = 1;
         var x = setInterval(function() {
           sec--;
@@ -206,6 +213,7 @@
           }
         }, 1000);
       }, delay);
+      reset();
     }
 
     function randomQuestion(level) {
@@ -224,7 +232,7 @@
       $('#count').show();
       $('#count').html('<font size="5">start</font>');
       q = randomQuestion($.cookie("level"));
-        res = eval(q);
+      res = eval(q);
       $('#q').text(q);
       $('#ans').focus();
 
