@@ -2,22 +2,10 @@
   font-family: font8bit;
   src: url('/font/8bit.TTF');
 }
-
 body {
   background-color: black;
-  /*height: 100vh;*/
-  /*width: 100%;*/
   margin: 0px;
 }
-/*
-div[class*="relative"] {
-  display: inline;
-}
-
-form {
-  display: inline-block;
-}*/
-
 .head {
   padding-top: 40px;
   letter-spacing: 3px;
@@ -26,38 +14,30 @@ form {
   margin: 0px;
   font-size: 50px;
 }
-
 .mid{
   height: 40vh;
   margin: 0px;
 }
-
 .bot{
   height: 31vh;
   margin: 0px;
 }
-
 .bot2{
   height: calc(100% - 92px - 70vh);
   background-image: url('/img/zlatans.jpg');
   margin: 0px;
 }
-
-
-
 .left {
   background-image: url('/img/zlatans.jpg');
   width: 53px;
   height: 100vh;
   float: left;
 }
-
 .center {
   width: calc(100% - 106px);
   float: left;
   height: 100vh;
 }
-
 .right {
   background-image: url('/img/zlatans.jpg');
   width: 53px;
@@ -65,13 +45,39 @@ form {
   float: left;
 }
 
-.tube{
+.tube1{
   background-image: url('/img/rooney.png');
   background-size: 100% 100%;
   width: calc(100% / 3);
   height: 100%;
   background-repeat: no-repeat;
   float: left;
+  margin: 0px;
+}
+.tube2{
+  background-image: url('/img/rooney.png');
+  background-size: 100% 100%;
+  width: calc(100% / 3);
+  height: 100%;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 0px;
+}
+.tube3{
+  background-image: url('/img/rooney.png');
+  background-size: 100% 100%;
+  width: calc(100% / 3);
+  height: 100%;
+  background-repeat: no-repeat;
+  float: left;
+  margin: 0px;
+}
+
+.textEdit8bit{
+  letter-spacing: 3px;
+  color: white;
+  font-family: font8bit;
+  font-size: 20px;
   margin: 0px;
 }
 
