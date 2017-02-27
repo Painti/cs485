@@ -1,6 +1,13 @@
 .action {
   padding-left: 1rem;
   padding-right: 1rem;
+  height: 10rem;
+}
+
+@media only screen and (max-width: 42em) {
+  .action {
+    height: 8rem;
+  }
 }
 
 #blank {
@@ -24,6 +31,7 @@
   0% {
     top: -5.2rem;
     left: -11rem;
+    transform: rotate(0deg);
   }
   10%, 30%, 50%, 70%, 90% {
     top: -2.6rem;
@@ -34,6 +42,7 @@
   100% {
     top: -6.2rem;
     left: 100%;
+    transform: rotate(1080deg);
   }
 }
 
@@ -100,16 +109,14 @@
     }
     10%, 30%, 50%, 70%, 90% {
       top: -2.6rem;
-      transform: rotate(180deg);
     }
     20%, 40%, 60%, 80% {
       top: -6.4rem;
-      transform: rotate(0deg);
     }
     100% {
       top: -5.2rem;
       left: 100%;
-      transform: rotate(0deg);
+      transform: rotate(1080deg);
     }
   }
   #fireball {

@@ -94,6 +94,7 @@ input[type=button]:active {
   padding-bottom: 0.25rem;
   font-size: 1.25rem;
   background-color: #400062;
+  height: 1.5rem;
 }
 
 .bar {
@@ -104,6 +105,7 @@ input[type=button]:active {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   table-layout: fixed;
+  height: 6rem;
 }
 
 .bar td {
@@ -179,4 +181,16 @@ input[type=button]:active {
   color: #000;
   border: 2px solid #cacaca;
   border-radius: 3px;
+}
+
+.floor{
+  background-image: url('/img/box.png');
+  width: 100%;
+  height: calc(100vh - 25rem);
+}
+
+@media only screen and (max-width: 42em) {
+  .floor{
+    height: calc(100vh - 22.5rem);
+  }
 }
