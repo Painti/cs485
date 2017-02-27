@@ -41,7 +41,7 @@ input[type=submit]{
   font-family: font8bit;
 }
 input[type=submit]:HOVER{
-  background-color: Yellow;
+  background-color: Orange;
 }
 .start{
   position: relative;
