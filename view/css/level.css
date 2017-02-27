@@ -29,17 +29,18 @@ form {
 
 .mid{
   height: 40vh;
+  margin: 0px;
 }
 
 .bot{
   height: 31vh;
+  margin: 0px;
 }
 
 .bot2{
-  height: calc(100% - 90px - 70vh);
+  height: calc(100% - 92px - 70vh);
   background-image: url('/img/zlatans.jpg');
   margin: 0px;
-
 }
 
 
@@ -71,8 +72,7 @@ form {
   height: 100%;
   background-repeat: no-repeat;
   float: left;
-
-
+  margin: 0px;
 }
 
 
