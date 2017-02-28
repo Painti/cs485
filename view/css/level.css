@@ -18,12 +18,17 @@ body {
   height: 40vh;
   margin: 0px;
 }
+.inthemiddle{
+  height: 100%;
+  width: calc(100% / 3);
+  margin: 0px;
+}
 .bot{
   height: 31vh;
   margin: 0px;
 }
 .bot2{
-  height: calc(100% - 92px - 70vh);
+  height: calc(100% - 90px - 70vh);
   background-image: url('/img/zlatans.jpg');
   margin: 0px;
 }
@@ -79,6 +84,13 @@ body {
   font-family: font8bit;
   font-size: 20px;
   margin: 0px;
+}
+
+.mario{
+    background-image: url('/img/mario.png');
+    background-size: 100% 100%;
+    width:  10%;
+    height: 20%;
 }
 
 
