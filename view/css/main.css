@@ -1,6 +1,6 @@
 @font-face {
-  font-family: font8bit;
-  src:url('/font/8bit.TTF');
+    font-family: font8bit;
+    src: url('/font/8bit.TTF');
 }
 
 body {
@@ -8,136 +8,149 @@ body {
     margin: 0px;
     font-family: font8bit;
 }
-input[type=text]{
-  position: absolute;
-  top:99px;
-  left: 200px;
-  background-image: url("/img/textBox.jpg");
-  background-size: 100% 100%;
-  padding: 5px;
-  border: 0px;
-}
-input[type=text]:HOVER{
-  opacity: 0.8;
-}
-input[type=submit]{
-  width: 60px;
-  height: 50px;
-  padding: 5px;
-  border: 0px;
-  position: absolute;
-  top:160px;
-  left: 180px;
-  display:block;
-  border-radius: 50%;
-  border: 1px solid black;
-  background-color: red;
-  font-family: font8bit;
-}
-input[type=submit]:HOVER{
-  background-color: Orange;
-}
-.start{
-  position: relative;
-  width: 100%;
-  height: 100%;
+
+input[type=text] {
+    position: absolute;
+    top: 99px;
+    left: 200px;
+    background-image: url("/img/textBox.jpg");
+    background-size: 100% 100%;
+    padding: 5px;
+    border: 0px;
 }
 
-#top{
-  width: 100%;
-  height:30vh;
-  background-image: url("/img/bg-head.jpg");
-  background-size: 100% 100%;
+input[type=text]:HOVER {
+    opacity: 0.8;
 }
-#center{
-  width: 100%;
-  height:40vh;
+
+input[type=submit] {
+    width: 60px;
+    height: 50px;
+    padding: 5px;
+    border: 0px;
+    position: absolute;
+    top: 160px;
+    left: 180px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: red;
+    font-family: font8bit;
 }
-#bot{
-  width: 100%;
-  height:30vh;
-  background-image: url("/img/bg-bottom.jpg");
-  background-size: 100% 100%;
-  position: relative;
+
+input[type=submit]:HOVER {
+    cursor: pointer; 
+    background-color: Orange;
+}
+
+.start {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#top {
+    width: 100%;
+    height: 30vh;
+    background-image: url("/img/bg-head.jpg");
+    background-size: 100% 100%;
+}
+
+#center {
+    width: 100%;
+    height: 40vh;
+}
+
+#bot {
+    width: 100%;
+    height: 30vh;
+    background-image: url("/img/bg-bottom.jpg");
+    background-size: 100% 100%;
+    position: relative;
 }
 
 @keyframes koopa-run {
-  0% {
-    left: 0%;
-  }
-  50% {
-    left: 80%;
-  }
-  100% {
-    left: 0%;
-  }
+    0% {
+        left: 0%;
+    }
+    50% {
+        left: 80%;
+    }
+    100% {
+        left: 0%;
+    }
 }
-#koopa{
-  width: 6rem;
-  height: 6rem;
-  background-repeat: no-repeat;
-  background-image: url("/img/koopa.png");
-  background-size: 100% 100%;
-  position: absolute;
-  top : 10px;
-  animation: koopa-run 5s linear infinite;
+
+#koopa {
+    width: 5rem;
+    height: 5rem;
+    background-repeat: no-repeat;
+    background-image: url("/img/koopa.png");
+    background-size: 100% 100%;
+    position: absolute;
+    top: 18%;
+    animation: koopa-run 5s linear infinite;
 }
-#koopa-fly{
-  width: 15rem;
-  height: 15rem;
-  background-repeat: no-repeat;
-  background-image: url("/img/koopa-fly.gif");
-  background-size: 100% 100%;
-  position: absolute;
-  top: 5%;
-  left: 22%;
+
+#koopa-fly {
+    width: 15rem;
+    height: 15rem;
+    background-repeat: no-repeat;
+    background-image: url("/img/koopa-fly.gif");
+    background-size: 100% 100%;
+    position: absolute;
+    top: 5%;
+    left: 22%;
 }
-#form{
-  background-image: url("/img/bg-form.jpg");
-  background-size: 100% 100%;
-  width: 420px;
-  height: 250px;
-  margin: 0 auto;
-  position: relative;
+
+#form {
+    background-image: url("/img/bg-form.jpg");
+    background-size: 100% 100%;
+    width: 420px;
+    height: 250px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media only screen and (max-height: 780px) {
+    #koopa {
+        display: inline-block;
+        width: 4rem;
+        height: 4rem;
+        top : 15%;
+    }
+    #koopa-fly {
+        display: inline-block;
+        width: 9rem;
+        height: 9rem;
+    }
 }
 
 @media only screen and (max-width: 42em) {
-  #form{
-    width: 320px;
-    height: 150px;
-  }
-  input[type=text]{
-    position: absolute;
-    top:53px;
-    left: 150px;
-    width: 150px
-  }
-  input[type=submit]{
-    position: absolute;
-    top:100px;
-    left: 140px;
-  }
-  #koopa {
-    display: inline-block;
-          width: 3rem;
-          height: 3rem;
-  }
-  #koopa-fly{
-    display: inline-block;
-    width: 5rem;
-    height: 5rem;
-  }
-}
-
-@media only screen and (max-height: 715px) {
-  #koopa {
-    display: inline-block;
-          width: 4rem;
-          height: 4rem;
-  }
-  #koopa-fly{
-    display: inline-block;
-    width: 9rem;
-    height: 9rem;
-  }
+    #form {
+        width: 320px;
+        height: 150px;
+    }
+    input[type=text] {
+        position: absolute;
+        top: 53px;
+        left: 150px;
+        width: 150px
+    }
+    input[type=submit] {
+        position: absolute;
+        top: 100px;
+        left: 140px;
+    }
+    #koopa {
+        display: inline-block;
+        width: 3rem;
+        height: 3rem;
+        top : 18%;
+    }
+    #koopa-fly {
+        display: inline-block;
+        width: 8rem;
+        height: 8rem;
+    }
 }
