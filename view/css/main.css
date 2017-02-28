@@ -39,7 +39,7 @@ input[type=submit] {
 }
 
 input[type=submit]:HOVER {
-    cursor: pointer; 
+    cursor: pointer;
     background-color: Orange;
 }
 
@@ -88,7 +88,7 @@ input[type=submit]:HOVER {
     background-image: url("/img/koopa.png");
     background-size: 100% 100%;
     position: absolute;
-    top: 18%;
+    top: 15%;
     animation: koopa-run 5s linear infinite;
 }
 
@@ -117,7 +117,7 @@ input[type=submit]:HOVER {
         display: inline-block;
         width: 4rem;
         height: 4rem;
-        top : 15%;
+        top: 10%;
     }
     #koopa-fly {
         display: inline-block;
@@ -146,7 +146,7 @@ input[type=submit]:HOVER {
         display: inline-block;
         width: 3rem;
         height: 3rem;
-        top : 18%;
+        top: 20%;
     }
     #koopa-fly {
         display: inline-block;
