@@ -82,11 +82,11 @@ input[type=submit]:HOVER {
 }
 
 #koopa {
-    width: 10vw;
+    width: 10vh;
     height: 10vh;
     background-repeat: no-repeat;
     background-image: url("/img/koopa.png");
-    background-size: auto 100%;
+    background-size: 100% 100%;
     position: fixed;
     top: 73vh;
     animation: koopa-run 5s linear infinite;
@@ -106,8 +106,8 @@ input[type=submit]:HOVER {
 #form {
     background-image: url("/img/bg-form.jpg");
     background-size: 100% 100%;
-    width: 420px;
-    height: 250px;
+    width: 20vw;
+    height: 20vh;
     margin: 0 auto;
     position: relative;
 }
