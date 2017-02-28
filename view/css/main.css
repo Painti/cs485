@@ -39,7 +39,7 @@ input[type=submit] {
 }
 
 input[type=submit]:HOVER {
-    cursor: pointer; 
+    cursor: pointer;
     background-color: Orange;
 }
 
@@ -82,13 +82,13 @@ input[type=submit]:HOVER {
 }
 
 #koopa {
-    width: 5rem;
-    height: 5rem;
+    width: 10vw;
+    height: 10vh;
     background-repeat: no-repeat;
     background-image: url("/img/koopa.png");
-    background-size: 100% 100%;
-    position: absolute;
-    top: 18%;
+    background-size: auto 100%;
+    position: fixed;
+    top: 73vh;
     animation: koopa-run 5s linear infinite;
 }
 
@@ -111,7 +111,7 @@ input[type=submit]:HOVER {
     margin: 0 auto;
     position: relative;
 }
-
+/*
 @media only screen and (max-height: 780px) {
     #koopa {
         display: inline-block;
@@ -153,4 +153,4 @@ input[type=submit]:HOVER {
         width: 8rem;
         height: 8rem;
     }
-}
+}*/
