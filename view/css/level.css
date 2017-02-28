@@ -17,6 +17,7 @@ body {
 .mid{
   height: 40vh;
   margin: 0px;
+  position: relative;
 }
 .inthemiddle{
   height: 100%;
@@ -50,7 +51,7 @@ body {
   float: left;
 }
 
-.tube1{
+.tube{
   background-image: url('/img/rooney.png');
   background-size: 100% 100%;
   width: calc(100% / 3);
@@ -58,24 +59,7 @@ body {
   background-repeat: no-repeat;
   float: left;
   margin: 0px;
-}
-.tube2{
-  background-image: url('/img/rooney.png');
-  background-size: 100% 100%;
-  width: calc(100% / 3);
-  height: 100%;
-  background-repeat: no-repeat;
-  float: left;
-  margin: 0px;
-}
-.tube3{
-  background-image: url('/img/rooney.png');
-  background-size: 100% 100%;
-  width: calc(100% / 3);
-  height: 100%;
-  background-repeat: no-repeat;
-  float: left;
-  margin: 0px;
+  z-index: 999;
 }
 
 .textEdit8bit{
@@ -89,8 +73,37 @@ body {
 .mario{
     background-image: url('/img/mario.png');
     background-size: 100% 100%;
-    width:  10%;
-    height: 20%;
+    width:  5rem;
+    height: 5rem;
+    position: absolute;
+    bottom: 0rem;
+    left: calc(50% - 2.5rem);
+    z-index: 1;
+}
+
+#mario1{
+  left: calc(17% - 2.5rem);
+}
+#mario2{
+  left: calc(50% - 2.5rem);
+}
+#mario3{
+  left: calc(83% - 2.5rem);
+}
+
+.godown{
+  animation: down;
+  animation-duration: 3s;
+  animation-timing-function: linear;;
+}
+
+@keyframes down {
+  0%{
+    bottom: 0rem;
+  }
+  100%{
+    bottom: -7rem;
+  }
 }
 
 
