@@ -7,37 +7,42 @@
   <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
   <link rel="stylesheet" href="/css/level.css">
   <script src="/js/jquery-3.1.1.js" charset="utf-8"></script>
-    <script>
-      $(document).ready(function(){
-          $("div.tube1").click(function(){
-            var form = $('<form action="selectLevel" method="post">' +
-              '<input type="hidden" name="level" value="1">' +
-              '<input type="submit" name="" value="SELECT LEVEL 1">' +
-              '</form>');
-            $(document.body).append(form);
-            form.submit();
+  <script>
+    $(document).ready(function() {
+      $("div.tube1").click(function() {
+        var form = $('<form action="selectLevel" method="post">' +
+          '<input type="hidden" name="level" value="1">' +
+          '<input type="submit" name="" value="SELECT LEVEL 1">' +
+          '</form>');
+        $(document.body).append(form);
+        form.submit();
 
-              });
-              $("div.tube2").click(function(){
-                var form = $('<form action="selectLevel" method="post">' +
-                  '<input type="hidden" name="level" value="2">' +
-                  '<input type="submit" name="" value="SELECT LEVEL 2">' +
-                  '</form>');
-                $(document.body).append(form);
-                form.submit();
+      });
+      $("div.tube1").hover(function() {
+        $(this).css("background-color", "yellow");
+      }, function() {
+        $(this).css("background-color", "black");
+      });
+      $("div.tube2").click(function() {
+        var form = $('<form action="selectLevel" method="post">' +
+          '<input type="hidden" name="level" value="2">' +
+          '<input type="submit" name="" value="SELECT LEVEL 2">' +
+          '</form>');
+        $(document.body).append(form);
+        form.submit();
 
-                  });
-              $("div.tube3").click(function(){
-                    var form = $('<form action="selectLevel" method="post">' +
-                      '<input type="hidden" name="level" value="3">' +
-                      '<input type="submit" name="" value="SELECT LEVEL 3">' +
-                      '</form>');
-                    $(document.body).append(form);
-                    form.submit();
+      });
+      $("div.tube3").click(function() {
+        var form = $('<form action="selectLevel" method="post">' +
+          '<input type="hidden" name="level" value="3">' +
+          '<input type="submit" name="" value="SELECT LEVEL 3">' +
+          '</form>');
+        $(document.body).append(form);
+        form.submit();
 
-                      });
-          });
-    </script>
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -53,31 +58,31 @@
       <div class="tube1">
         <center>
           <div class="textEdit8bit">
-              Level 1
+            Level 1
           </div>
-        <!-- <form class="" action="selectLevel" method="post">
+          <!-- <form class="" action="selectLevel" method="post">
           <input type="hidden" name="level" value="1">
           <input type="submit" name="" value="SELECT LEVEL 1">
         </form> -->
-      </center>
+        </center>
       </div>
       <div class="tube2">
         <center>
           <div class="textEdit8bit">
-              Level 2
+            Level 2
           </div>
-        <!-- <form class="" action="selectLevel" method="post">
+          <!-- <form class="" action="selectLevel" method="post">
           <input type="hidden" name="level" value="2">
           <input type="submit" name="" value="SELECT LEVEL 2">
         </form> -->
-      </center>
+        </center>
       </div>
       <div class="tube3">
         <center>
           <div class="textEdit8bit">
-              Level 3
+            Level 3
           </div>
-        <!-- <form class="" action="selectLevel" method="post">
+          <!-- <form class="" action="selectLevel" method="post">
           <input type="hidden" name="level" value="3">
           <input type="submit" name="" value="SELECT LEVEL 3">
         </form> -->
