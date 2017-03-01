@@ -18,6 +18,7 @@ body {
   height: 3vh;
   top: 43vh;
   left: 49vw;
+  font-family: font8bit;
 }
 
 #input-text:HOVER {
@@ -31,21 +32,21 @@ body {
   border: 0px;
   position: fixed;
   display: block;
-  border-radius: 50%;
-  border: 1px solid black;
-  background-color: red;
+  width: 130px;
+  height: 80px;
+  background-size: 100% 100%;
+  background-image: url("/img/btn.png");
+  background-color: rgb(0, 0, 0,0);
   font-family: font8bit;
   top: 53vh;
-  left: 50vw;
+  left:46.5vw;
+}
+#btn:active {
+  transform: translateY(4px);
 }
 
-input[type=submit]:HOVER {
-    cursor: pointer;
-    background-color: Orange;
-}
 #btn:HOVER {
-  cursor: pointer;
-  background-color: Orange;
+  opacity: 0.8;
 }
 
 .start {
@@ -98,8 +99,8 @@ input[type=submit]:HOVER {
 }
 
 #koopa-fly {
-  width: 15rem;
-  height: 15rem;
+  width: 25vh;
+  height: 25vh;
   background-repeat: no-repeat;
   background-image: url("/img/koopa-fly.gif");
   background-size: 100% 100%;

@@ -14,8 +14,9 @@
   <div id="top"> </div>
   <div id="koopa-fly"></div>
   <form class="start" action="createPlayer" method="post">
-    <input id="input-text" type="text" name="name" value="" style="">
-    <input id="btn" type="submit" name="" value="GO">
+    <input id="input-text" type="text" name="name" value=" input your name..." style="" onblur="if (this.value == '') {this.value = ' input your name...';}"
+ onfocus="if (this.value == ' input your name...') {this.value = '';}">
+    <input id="btn" type="submit" name="" value="">
   </form>
   <div id="bot">
     <div id="koopa"></div>
