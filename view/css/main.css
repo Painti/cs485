@@ -39,15 +39,13 @@ body {
   left: 50vw;
 }
 
-<<<<<<< HEAD
 input[type=submit]:HOVER {
     cursor: pointer;
     background-color: Orange;
-=======
+}
 #btn:HOVER {
   cursor: pointer;
   background-color: Orange;
->>>>>>> 0c29440a77aef50b3c2fbe9ada6cf3a619215e6f
 }
 
 .start {
