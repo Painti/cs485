@@ -1,5 +1,5 @@
 @ECHO OFF
 git add *.*
-git commit -m "GOD WIN."
+git commit -m "Baroad"
 git push
 pause

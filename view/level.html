@@ -7,37 +7,105 @@
   <link rel="icon" type="image/x-icon" href="/img/logo.ico" />
   <link rel="stylesheet" href="/css/level.css">
   <script src="/js/jquery-3.1.1.js" charset="utf-8"></script>
-    <script>
-      $(document).ready(function(){
-          $("div.tube1").click(function(){
-            var form = $('<form action="selectLevel" method="post">' +
-              '<input type="hidden" name="level" value="1">' +
-              '<input type="submit" name="" value="SELECT LEVEL 1">' +
-              '</form>');
-            $(document.body).append(form);
-            form.submit();
+  <script>
+    $(document).ready(function() {
+      $('#mario1').hide();
+      $('#mario2').hide();
+      $('#mario3').hide();
 
-              });
-              $("div.tube2").click(function(){
-                var form = $('<form action="selectLevel" method="post">' +
-                  '<input type="hidden" name="level" value="2">' +
-                  '<input type="submit" name="" value="SELECT LEVEL 2">' +
-                  '</form>');
-                $(document.body).append(form);
-                form.submit();
-
-                  });
-              $("div.tube3").click(function(){
-                    var form = $('<form action="selectLevel" method="post">' +
-                      '<input type="hidden" name="level" value="3">' +
-                      '<input type="submit" name="" value="SELECT LEVEL 3">' +
-                      '</form>');
-                    $(document.body).append(form);
-                    form.submit();
-
-                      });
-          });
-    </script>
+      $("div.tube1").hover(function() {
+        $('#mario1').show();
+      }, function() {
+        $('#mario1').hide();
+      });
+      $("div.tube2").hover(function() {
+        $('#mario2').show();
+      }, function() {
+        $('#mario2').hide();
+      });
+      $("div.tube3").hover(function() {
+        $('#mario3').show();
+      }, function() {
+        $('#mario3').hide();
+      });
+      $("div.tube1").click(function() {
+        $('#mario1').addClass("godown");
+        $("div.tube1").hover(function() {
+          $('#mario1').show();
+        }, function() {
+          $('#mario1').show();
+        });
+        $("div.tube2").hover(function() {
+          $('#mario2').hide();
+        }, function() {
+          $('#mario2').hide();
+        });
+        $("div.tube3").hover(function() {
+          $('#mario3').hide();
+        }, function() {
+          $('#mario3').hide();
+        });
+        setTimeout(function() {
+          var form = $('<form action="selectLevel" method="post">' +
+            '<input type="hidden" name="level" value="1">' +
+            '<input type="submit" name="" value="SELECT LEVEL 1">' +
+            '</form>');
+          $(document.body).append(form);
+          form.submit();
+        }, 3000);
+      });
+      $("div.tube2").click(function() {
+        $("div.tube1").hover(function() {
+          $('#mario1').hide();
+        }, function() {
+          $('#mario1').hide();
+        });
+        $("div.tube2").hover(function() {
+          $('#mario2').show();
+        }, function() {
+          $('#mario2').show();
+        });
+        $("div.tube3").hover(function() {
+          $('#mario3').hide();
+        }, function() {
+          $('#mario3').hide();
+        });
+        setTimeout(function() {
+          var form = $('<form action="selectLevel" method="post">' +
+            '<input type="hidden" name="level" value="2">' +
+            '<input type="submit" name="" value="SELECT LEVEL 2">' +
+            '</form>');
+          $(document.body).append(form);
+          form.submit();
+        }, 3000);
+      });
+      $("div.tube3").click(function() {
+        $("div.tube1").hover(function() {
+          $('#mario1').hide();
+        }, function() {
+          $('#mario1').hide();
+        });
+        $("div.tube2").hover(function() {
+          $('#mario2').hide();
+        }, function() {
+          $('#mario2').hide();
+        });
+        $("div.tube3").hover(function() {
+          $('#mario3').show();
+        }, function() {
+          $('#mario3').show();
+        });
+        setTimeout(function() {
+          var form = $('<form action="selectLevel" method="post">' +
+            '<input type="hidden" name="level" value="3">' +
+            '<input type="submit" name="" value="SELECT LEVEL 3">' +
+            '</form>');
+          $(document.body).append(form);
+          form.submit();
+        }, 3000);
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -48,39 +116,40 @@
         Select your level
       </center>
     </div>
-    <div class="mid"></div>
+    <div class="mid">
+      <div id="mario1" class="mario"></div>
+      <div id="mario2" class="mario"></div>
+      <div id="mario3" class="mario"></div>
+    </div>
     <div class="bot">
-      <div class="tube1">
+      <div class="tube tube1">
         <center>
           <div class="textEdit8bit">
-              Level 1
+            Level 1
           </div>
-        <!-- <form class="" action="selectLevel" method="post">
-          <input type="hidden" name="level" value="1">
-          <input type="submit" name="" value="SELECT LEVEL 1">
-        </form> -->
-      </center>
+
+        </center>
       </div>
-      <div class="tube2">
+      <div class="tube tube2">
         <center>
           <div class="textEdit8bit">
-              Level 2
+            Level 2
           </div>
-        <!-- <form class="" action="selectLevel" method="post">
-          <input type="hidden" name="level" value="2">
-          <input type="submit" name="" value="SELECT LEVEL 2">
-        </form> -->
+
+
       </center>
+
+
+        </center>
+
+
       </div>
-      <div class="tube3">
+      <div class="tube tube3">
         <center>
           <div class="textEdit8bit">
-              Level 3
+            Level 3
           </div>
-        <!-- <form class="" action="selectLevel" method="post">
-          <input type="hidden" name="level" value="3">
-          <input type="submit" name="" value="SELECT LEVEL 3">
-        </form> -->
+
         </center>
       </div>
     </div>
