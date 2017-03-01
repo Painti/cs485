@@ -11,6 +11,7 @@
   <script src="/js/jquery-3.1.1.js" charset="utf-8"></script>
   <script src="/js/jquery.cookie.js"></script>
   <script type="text/javascript">
+    // ตรวจสอบว่า มีการตั้งชื่อ และเลือกเลเวลแล้ว
     if ($.cookie("name") === undefined) {
       window.location.href = '/';
     } else if ($.cookie("level") === undefined) {
@@ -129,8 +130,9 @@
       }, 1000);
     };
 
+    // ฟังก์สำหรับลดเลือดเต่า
     function decreaseOppHP() {
-      hp_o -= 10;
+      hp_o -= 20;
       $('#opponent').css("width", hp_o + '%');
       if (hp_o <= 20) {
         $('#opponent').css("background-color", "red");
@@ -149,8 +151,9 @@
       }
     }
 
+    // ฟังก์สำหรับลดเลือดมาริโอ้
     function decreaseAllyHP() {
-      hp_a -= 10;
+      hp_a -= 20;
       $('#ally').css("width", hp_a + '%');
       if (hp_a <= 20) {
         $('#ally').css("background-color", "red");
@@ -217,6 +220,7 @@
       reset();
     }
 
+    // ฟังก์ชัน เพื่อ สุ่มคำถามในแต่ละเลเวล
     function randomQuestion(level) {
       if (level == 1) {
         return Math.floor((Math.random() * 9) + 1) + '+' + Math.floor((Math.random() * 9) + 1);
@@ -249,12 +253,13 @@
 
     });
 
+    // เมื่อ กดปุ่ม submit
     $('#submit').click(function() {
-      var a = $('#ans').val();
-      if (a == res) {
+      var a = $('#ans').val();  // รับค่าจากช่องกรอกคำตอบ
+      if (a == res) {  // ถ้าตอบถูก ให้มาริโอ้ โจมตี
         $('#count').html('<font color="#0dc90d" size="5">right</font>');
         marioAtk();
-      } else {
+      } else {         // ถ้าตอบผิด ให้เต่าโจมตี
         $('#count').html('<font color="red" size="5">Wrong</font>');
         koopaAtk();
       }
