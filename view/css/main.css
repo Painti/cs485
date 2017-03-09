@@ -19,7 +19,11 @@ body {
   top: 43vh;
   left: 49vw;
   font-family: font8bit;
+<<<<<<< HEAD
   font-size: 1px;
+=======
+  font-size: 10px;
+>>>>>>> 61de8198d0f84a9320398e3c80c62a3ee45fc943
 }
 #input-text:HOVER {
   opacity: 0.8;
@@ -31,11 +35,19 @@ body {
   border: 0px;
   position: fixed;
   display: block;
+  padding: 5px;
+  border: 0px;
+  position: fixed;
+  display: block;
+  width: 6%;
+  height: 5%;
   background-size: 100% 100%;
   background-image: url("/img/btn.png");
   font-family: font8bit;
   top: 53vh;
-  left:46.5vw;
+  left:47.0vw;
+  cursor: pointer;
+
 }
 #btn:active {
   transform: translateY(5px);
@@ -44,7 +56,6 @@ body {
 #btn:HOVER {
   opacity: 0.8;
 }
-
 .start {
   width: 30vw;
   height: 35vh;
@@ -104,12 +115,99 @@ body {
   top: 5%;
   left: 22%;
 }
+@media only screen and (max-width: 1150px) {
+  #input-text {
+      font-size: 7px;
+  }
 
-
-@media only screen and (min-widtht: 1024px) {
-
+@media only screen and (device-width: 768px)/*ipad */ {
+  .start {
+      width: 75vw;
+      height: 30vh;
+      top: 32vh;
+      left: 13vw;
+  }
+  #input-text {
+      position: absolute;
+      top: 11vh;
+      left: 35vw;
+      width: 45%;
+      font-size: 12px;
+  }
+  #btn {
+      width: 10%;
+      height: 5%;
+  }
+  #koopa {
+      display: inline-block;
+      width: 5rem;
+      height: 5rem;
+      top: 75%;
+  }
+  #koopa-fly {
+      display: inline-block;
+      width: 12rem;
+      height: 12rem;
+  }
+}
+@media only screen and (device-width: 1024px)/*ipad pro*/ {
+  .start {
+      width: 75vw;
+      height: 30vh;
+      top: 32vh;
+      left: 13vw;
+  }
+  #input-text {
+      position: absolute;
+      top: 11vh;
+      left: 35vw;
+      width: 45%;
+      font-size: 18px;
+  }
+  #btn {
+      width: 10%;
+      height: 5%;
+  }
+  #koopa {
+      display: inline-block;
+      width: 7rem;
+      height: 7rem;
+      top: 75%;
+  }
+  #koopa-fly {
+      display: inline-block;
+      width: 15rem;
+      height: 15rem;
+  }
 }
 
 @media only screen and (max-width: 42em) {
-
+  .start {
+      width: 75vw;
+      height: 30vh;
+      top: 32vh;
+      left: 13vw;
+  }
+  #input-text {
+      position: absolute;
+      top: 11vh;
+      left: 35vw;
+      width: 45%;
+      font-size: 7px;
+  }
+  #btn {
+      width: 10%;
+      height: 5%;
+  }
+  #koopa {
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      top: 76%;
+  }
+  #koopa-fly {
+      display: inline-block;
+      width: 8rem;
+      height: 8rem;
+  }
 }
