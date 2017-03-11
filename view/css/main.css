@@ -19,14 +19,22 @@ body {
   top: 43vh;
   left: 49vw;
   font-family: font8bit;
+<<<<<<< HEAD
+  font-size: 1px;
+=======
   font-size: 10px;
+>>>>>>> 61de8198d0f84a9320398e3c80c62a3ee45fc943
 }
-
 #input-text:HOVER {
   opacity: 0.8;
 }
 
 #btn {
+  width: 8vw;
+  height: 8vh;
+  border: 0px;
+  position: fixed;
+  display: block;
   padding: 5px;
   border: 0px;
   position: fixed;
@@ -39,10 +47,10 @@ body {
   top: 53vh;
   left:47.0vw;
   cursor: pointer;
-  
+
 }
 #btn:active {
-  transform: translateY(4px);
+  transform: translateY(5px);
 }
 
 #btn:HOVER {
@@ -112,7 +120,6 @@ body {
       font-size: 7px;
   }
 
-}
 @media only screen and (device-width: 768px)/*ipad */ {
   .start {
       width: 75vw;
