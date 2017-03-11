@@ -13,12 +13,23 @@
   <div id="koopa-fly"></div>
   <form class="start" action="createPlayer" method="post">
     <input id="input-text" type="text" name="name" value="" placeholder="input your name">
-    <input id="input-text" type="text" name="name" placeholder=" Input your name">
-    <input id="btn" type="submit" name="" value="">
+    <input id="btn" type="button" onclick="create()" name="" value="">
   </form>
   <div id="bot">
     <div id="koopa"></div>
   </div>
+
+  <script src="/js/jquery-3.1.1.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    function create(){
+      if($("#input-text").val() == ''){
+        window.alert("Please input your name");
+      } else {
+        $(".start").submit();
+      }
+    }
+  </script>
+
 </body>
 
 </html>
