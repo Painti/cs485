@@ -1,5 +1,5 @@
+123 5
+zako 25
+zako 28
 boat 30
-zako 45
-zako 40
-boat 42
 boat 35

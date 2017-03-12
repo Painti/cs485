@@ -16,7 +16,6 @@ module.exports = {
       var result = cookies.name + ' ' + post.time;
       var arr = stat.toString().split("\n");
       arr.pop();
-      console.log(result);
       var dup = false;
       for (var x in arr) {
         if (arr[x] == result) {
@@ -30,15 +29,22 @@ module.exports = {
           var y = b.split(" ");
           return x[1] - y[1];
         });
+        if (arr.length > 5)
+          arr.pop();
         fs.writeFileSync(file_data, '');
         for (var x in arr) {
-          console.log(arr[x]);
-          if (x < 5)
-            fs.appendFileSync(file_data, arr[x] + '\n');
+          fs.appendFileSync(file_data, arr[x] + '\n');
         }
+      }
+      var str = '';
+      for (var x in arr) {
+        var y = arr[x].split(' ');
+        str += '<center>' + y[0] + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + y[1] + ' sec</center>'
       }
       var data = fs.readFileSync('./view/result.html');
       data = data.toString().replace(/{{\$result}}/g, post.result);
+      data = data.toString().replace(/{{\$time}}/g, 'your time : ' + post.time + ' sec');
+      data = data.toString().replace(/{{\$content}}/g, str);
       res.writeHead(200, {
         'Content-Type': 'text/html',
         'Content-Length': data.length
