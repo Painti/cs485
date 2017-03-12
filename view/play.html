@@ -81,6 +81,8 @@
     var countdown;
     var q;
     var res;
+    var time = 0;
+    var count = 10;
     const delay = 2000;
 
     var hp_a = 100;
@@ -145,6 +147,7 @@
       if (hp_o <= 0) {
         var form = $('<form action="/result" method="POST">' +
           '<input type="hidden" name="result" value="winner">' +
+          '<input type="hidden" name="time" value="' + time + '">' +
           '</form>');
         $(document.body).append(form);
         form.submit();
@@ -166,6 +169,7 @@
       if (hp_a <= 0) {
         var form = $('<form action="/result" method="POST">' +
           '<input type="hidden" name="result" value="loser">' +
+          '<input type="hidden" name="time" value="50">' +
           '</form>');
         $(document.body).append(form);
         form.submit();
@@ -241,12 +245,13 @@
       $('#q').text(q);
       $('#ans').focus();
 
-      var count = 10;
+      count = 10;
       countdown = setInterval(function() {
         $('#count').text(count);
         count--;
         if (count < 0) {
           $('#count').html('<font color="red">Time out</font>');
+          time += 10;
           koopaAtk();
         }
       }, 1000);
@@ -255,12 +260,14 @@
 
     // เมื่อ กดปุ่ม submit
     $('#submit').click(function() {
-      var a = $('#ans').val();  // รับค่าจากช่องกรอกคำตอบ
-      if (a == res) {  // ถ้าตอบถูก ให้มาริโอ้ โจมตี
+      var a = $('#ans').val(); // รับค่าจากช่องกรอกคำตอบ
+      if (a == res) { // ถ้าตอบถูก ให้มาริโอ้ โจมตี
         $('#count').html('<font color="#0dc90d" size="5">right</font>');
+        time += 10 - count;
         marioAtk();
-      } else {         // ถ้าตอบผิด ให้เต่าโจมตี
+      } else { // ถ้าตอบผิด ให้เต่าโจมตี
         $('#count').html('<font color="red" size="5">Wrong</font>');
+        time += 10 - count;
         koopaAtk();
       }
     });

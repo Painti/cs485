@@ -24,13 +24,23 @@
 </body>
 
 <script type="text/javascript">
-  function gotoHome(){
+  /****************************************
+   *    โค้ดส่วนนี้ นำมาจาก
+   *    http://stackoverflow.com/questions/2482059/disable-f5-and-browser-refresh-using-javascript
+   */
+  function disableF5(e) {
+    if ((e.which || e.keyCode) == 116) e.preventDefault();
+  };
+  $(document).on("keydown", disableF5);
+  /***************************************/
+
+  function gotoHome() {
     window.location.href = '/';
   }
 
   $('.btn').focus();
   $('.btn').focusout(function() {
-      $(this).focus();
+    $(this).focus();
   })
 </script>
 
