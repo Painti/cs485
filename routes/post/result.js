@@ -25,8 +25,14 @@ module.exports = {
       }
       if (!dup) {
         arr.push(result);
+        arr.sort(function(a, b) {
+          var x = a.split(" ");
+          var y = b.split(" ");
+          return x[1] - y[1];
+        });
         fs.writeFileSync(file_data, '');
         for (var x in arr) {
+          console.log(arr[x]);
           if (x < 5)
             fs.appendFileSync(file_data, arr[x] + '\n');
         }
