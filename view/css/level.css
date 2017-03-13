@@ -2,10 +2,12 @@
   font-family: font8bit;
   src: url('/font/8bit.TTF');
 }
+
 body {
   background-color: black;
   margin: 0px;
 }
+
 .head {
   padding-top: 40px;
   letter-spacing: 3px;
@@ -14,37 +16,37 @@ body {
   margin: 0px;
   font-size: 50px;
 }
-.mid{
 
+.mid {
   height: 40vh;
   margin: 0px;
   position: relative;
-
 }
 
-.bot{
-
+.bot {
   height: 31vh;
   margin: 0px;
-
 }
-.bot2{
+
+.bot2 {
   height: calc(100% - 90px - 70vh);
   background-image: url('/img/zlatans.jpg');
   margin: 0px;
 }
+
 .left {
   background-image: url('/img/zlatans.jpg');
   width: 53px;
   height: 100vh;
   float: left;
 }
+
 .center {
   width: calc(100% - 106px);
   float: left;
   height: 100vh;
-
 }
+
 .right {
   background-image: url('/img/zlatans.jpg');
   width: 53px;
@@ -52,7 +54,7 @@ body {
   float: left;
 }
 
-.tube{
+.tube {
   background-image: url('/img/rooney.png');
   background-size: 100% 100%;
   width: calc(100% / 3);
@@ -60,11 +62,9 @@ body {
   background-repeat: no-repeat;
   float: left;
   margin: 0px;
-
-
 }
 
-.textEdit8bit{
+.textEdit8bit {
   letter-spacing: 3px;
   color: white;
   font-family: font8bit;
@@ -72,42 +72,44 @@ body {
   margin: 0px;
 }
 
-.mario{
-    background-image: url('/img/mario.png');
-    background-size: 100% 100%;
-    width:  10rem;
-    height: 10rem;
-    position: absolute;
-    bottom: 0rem;
-    left: calc(50% - 5rem);
-    z-index: -1;
+.mario {
+  background-image: url('/img/mario.png');
+  background-size: 100% 100%;
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  bottom: 0rem;
+  left: calc(50% - 5rem);
+  z-index: -1;
 }
 
-#mario1{
+#mario1 {
   left: calc(17% - 5rem);
 }
-#mario2{
+
+#mario2 {
   left: calc(50% - 5rem);
 }
-#mario3{
+
+#mario3 {
   left: calc(83% - 5rem);
 }
 
-.godown{
+.godown {
   animation: down;
   animation-duration: 1.2s;
-  animation-timing-function: linear;;
+  animation-timing-function: linear;
+  ;
 }
 
 @keyframes down {
-  0%{
+  0% {
     bottom: 0rem;
   }
-  100%{
+  100% {
     bottom: -20rem;
   }
 }
-
 
 @media only screen and (max-width: 42em) {
   h1 {

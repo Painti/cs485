@@ -125,11 +125,11 @@
     top: -4.2rem;
     left: -9rem;
   }
-  #blank {
-    width: calc(100% - 17rem);
-  }
   #mario, #enemy {
     width: 8rem;
     height: 8rem;
+  }
+  #blank {
+    width: calc(100% - 17rem);
   }
 }

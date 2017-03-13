@@ -21,6 +21,7 @@ body {
   font-family: font8bit;
   font-size: 11px;
 }
+
 #input-text:HOVER {
   opacity: 0.8;
 }
@@ -41,10 +42,10 @@ body {
   background-image: url("/img/btn.png");
   font-family: font8bit;
   top: 53vh;
-  left:47.0vw;
+  left: 47.0vw;
   cursor: pointer;
-
 }
+
 #btn:active {
   transform: translateY(5px);
 }
@@ -52,6 +53,7 @@ body {
 #btn:HOVER {
   opacity: 0.8;
 }
+
 .start {
   width: 30vw;
   height: 35vh;
@@ -111,99 +113,108 @@ body {
   top: 5%;
   left: 22%;
 }
+
 @media only screen and (max-width: 1150px) {
   #input-text {
-      font-size: 6px;
-  }
-
-@media only screen and (device-width: 768px)/*ipad */ {
-  .start {
-      width: 75vw;
-      height: 30vh;
-      top: 32vh;
-      left: 13vw;
-  }
-  #input-text {
-      position: absolute;
-      top: 11vh;
-      left: 35vw;
-      width: 45%;
-      font-size: 12px;
-  }
-  #btn {
-      width: 10%;
-      height: 5%;
-  }
-  #koopa {
-      display: inline-block;
-      width: 5rem;
-      height: 5rem;
-      top: 75%;
-  }
-  #koopa-fly {
-      display: inline-block;
-      width: 12rem;
-      height: 12rem;
+    font-size: 6px;
   }
 }
-@media only screen and (device-width: 1024px)/*ipad pro*/ {
+
+@media only screen and (device-width: 768px)
+/*ipad */
+
+{
   .start {
-      width: 75vw;
-      height: 30vh;
-      top: 32vh;
-      left: 13vw;
+    width: 75vw;
+    height: 30vh;
+    top: 32vh;
+    left: 13vw;
   }
   #input-text {
-      position: absolute;
-      top: 11vh;
-      left: 35vw;
-      width: 45%;
-      font-size: 18px;
+    position: absolute;
+    top: 11vh;
+    left: 35vw;
+    width: 45%;
+    font-size: 12px;
   }
   #btn {
-      width: 10%;
-      height: 5%;
+    width: 10%;
+    height: 5%;
   }
   #koopa {
-      display: inline-block;
-      width: 7rem;
-      height: 7rem;
-      top: 75%;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    top: 75%;
   }
   #koopa-fly {
-      display: inline-block;
-      width: 15rem;
-      height: 15rem;
+    display: inline-block;
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+@media only screen and (device-width: 1024px)
+/*ipad pro*/
+
+{
+  .start {
+    width: 75vw;
+    height: 30vh;
+    top: 32vh;
+    left: 13vw;
+  }
+  #input-text {
+    position: absolute;
+    top: 11vh;
+    left: 35vw;
+    width: 45%;
+    font-size: 18px;
+  }
+  #btn {
+    width: 10%;
+    height: 5%;
+  }
+  #koopa {
+    display: inline-block;
+    width: 7rem;
+    height: 7rem;
+    top: 75%;
+  }
+  #koopa-fly {
+    display: inline-block;
+    width: 15rem;
+    height: 15rem;
   }
 }
 
 @media only screen and (max-width: 42em) {
   .start {
-      width: 75vw;
-      height: 30vh;
-      top: 32vh;
-      left: 13vw;
+    width: 75vw;
+    height: 30vh;
+    top: 32vh;
+    left: 13vw;
   }
   #input-text {
-      position: absolute;
-      top: 11vh;
-      left: 35vw;
-      width: 45%;
-      font-size: 7px;
+    position: absolute;
+    top: 11vh;
+    left: 35vw;
+    width: 45%;
+    font-size: 7px;
   }
   #btn {
-      width: 10%;
-      height: 5%;
+    width: 10%;
+    height: 5%;
   }
   #koopa {
-      display: inline-block;
-      width: 3rem;
-      height: 3rem;
-      top: 76%;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    top: 76%;
   }
   #koopa-fly {
-      display: inline-block;
-      width: 8rem;
-      height: 8rem;
+    display: inline-block;
+    width: 8rem;
+    height: 8rem;
   }
 }

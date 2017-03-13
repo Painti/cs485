@@ -1,6 +1,6 @@
 @font-face {
-    font-family: font8bit;
-    src: url('/font/8bit.TTF');
+  font-family: font8bit;
+  src: url('/font/8bit.TTF');
 }
 
 body {
@@ -152,7 +152,6 @@ input[type=button]:active {
   .detail-l:after {
     content: ' - ATK : 10 , HP : 100';
   }
-
   .detail-r:after {
     content: ' - ATK : 10 , HP : 100';
   }
@@ -183,14 +182,14 @@ input[type=button]:active {
   border-radius: 3px;
 }
 
-.floor{
+.floor {
   background-image: url('/img/box.png');
   width: 100%;
   height: calc(100vh - 25rem);
 }
 
 @media only screen and (max-width: 42em) {
-  .floor{
+  .floor {
     height: calc(100vh - 22.5rem);
   }
 }
