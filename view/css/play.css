@@ -150,10 +150,10 @@ input[type=button]:active {
 
 @media only screen and (min-width: 42em) {
   .detail-l:after {
-    content: ' - ATK : 10 , HP : 100';
+    content: ' - ATK : 20 , HP : 100';
   }
   .detail-r:after {
-    content: ' - ATK : 10 , HP : 100';
+    content: ' - ATK : 20 , HP : 100';
   }
 }
 
